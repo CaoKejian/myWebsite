@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, reactive, toRefs } from 'vue';
 import { http } from '../../share/http';
 import s from './First.module.scss';
 export const First = defineComponent({
@@ -8,17 +8,36 @@ export const First = defineComponent({
     }
   },
   setup: (props, context) => {
+    const state = reactive({
+      FormData: {
+        email: '1849201815@qq.com',
+        code: ''
+      }
+    })
+    const { FormData } = toRefs(state)
     const onClick = async () => {
-      const encodedEmail = encodeURIComponent('1849201815@qq.com');
-      const response = await http.get('/send_verification_code', {
+      const encodedEmail = encodeURIComponent(FormData.value.email);
+      await http.get('/send_verification_code', {
         email: encodedEmail
       })
-      console.log(response);
     }
-    return () => (
-      <div onClick={onClick}>
-        first
-      </div >
+    const onSubmit = async () => {
+      await http.post('/verify_verification_code', {
+        code: FormData.value.code
+      }).catch(error => {
+        if(error.response.status === 401){
+          alert(error.response.data)
+        }
+      })
+    }
+    return () => (<>
+      <input class={s.email} type="email" v-model={FormData.value.email} />
+      <input class={s.email} type="number" v-model={FormData.value.code} />
+      <button onClick={onClick} class={s.putEmail}>
+        点我发送邮箱
+      </button >
+      <button onClick={onSubmit} class={s.putEmail}>登录</button>
+    </>
     )
   }
 })
