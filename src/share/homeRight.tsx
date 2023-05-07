@@ -1,4 +1,5 @@
 import { defineComponent, PropType } from 'vue';
+import { useRouter } from 'vue-router';
 import s from './homeRight.module.scss';
 export const HomeRight = defineComponent({
   props: {
@@ -7,11 +8,12 @@ export const HomeRight = defineComponent({
     }
   },
   setup: (props, context) => {
+    const router = useRouter()
     const toWebPage = (url: string) => {
       window.open(url, '_blank');
     }
     const gotoDeatil = (url: string) => {
-
+      router.push(url)
     }
     return () => (
       <section class={s.right}>
@@ -47,7 +49,7 @@ export const HomeRight = defineComponent({
               <div class={s.el}>
                 <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</div>
               </div>
-              <div class={s.el} onClick={() => gotoDeatil('1')}>
+              <div class={s.el} onClick={() => gotoDeatil('/search')}>
                 <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#search'></use></svg>
                   搜索引擎</div>
               </div>

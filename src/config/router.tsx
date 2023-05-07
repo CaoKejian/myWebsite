@@ -19,5 +19,10 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/home', component: () => import('../views/Home')
   },
-  {path:'/search',component:() => import('../views/Search')}
+  {
+    path: '/search', component: () => import('../views/Search'),
+    children: [
+      { path: "", component: () => import('../share/SearchPage') }
+    ]
+  }
 ]

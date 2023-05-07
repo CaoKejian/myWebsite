@@ -1,4 +1,5 @@
 import { defineComponent, PropType } from 'vue';
+import { RouterView } from 'vue-router';
 import s from './Search.module.scss';
 export const Search = defineComponent({
   props: {
@@ -8,8 +9,7 @@ export const Search = defineComponent({
   },
   setup: (props, context) => {
     return () => (
-      <div>search
-      </div>
+     <RouterView />
     )
   }
 })

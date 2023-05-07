@@ -17,6 +17,7 @@ export const Button = defineComponent({
       "url('/src/assets/imgs/3.png')",
       "url('/src/assets/imgs/4.png')",
       "url('/src/assets/imgs/5.png')",
+      "url('/src/assets/imgs/6.png')",
     ];
     const { slots } = context;
     watch(() => props.index, (newIndex) => {
