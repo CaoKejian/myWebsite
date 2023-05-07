@@ -60,3 +60,21 @@
     }
   } 
 }
+.social{
+  width: 76%;
+  margin-top: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  &:hover{
+    background: rgba(0,0,0,.2509803922);
+    backdrop-filter: blur(10px);
+  }
+  .svg{
+    margin-right: 16px;
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
