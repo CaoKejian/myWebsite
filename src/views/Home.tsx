@@ -20,9 +20,12 @@ export const Home = defineComponent({
       "url('/src/assets/imgs/4.png')",
       "url('/src/assets/imgs/5.png')",
     ];
+    const setPaper = () => {
+      currentIndex.value = Math.floor(Math.random() * bgImages.length)
+    }
     return () => (
-      <div class={s.wrapper} ref={wrapper} style={`background: ${bgImages[currentIndex.value]}`} >
-        <Button>切换壁纸</Button>
+      <div class={s.wrapper} ref={wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} >
+        <Button onClick={setPaper} index={currentIndex.value}>切换壁纸</Button>
         <div class={s.wrapper_seciton}>
           <HomeLeft></HomeLeft>
           <HomeRight></HomeRight>
