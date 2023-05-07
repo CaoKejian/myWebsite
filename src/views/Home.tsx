@@ -11,7 +11,6 @@ export const Home = defineComponent({
     }
   },
   setup: (props, context) => {
-    const wrapper = ref<HTMLElement>()
     const currentIndex = ref(0)
     const bgImages = [
       "url('/src/assets/imgs/1.png')",
@@ -23,14 +22,19 @@ export const Home = defineComponent({
     const setPaper = () => {
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
-    return () => (
-      <div class={s.wrapper} ref={wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} >
-        <Button onClick={setPaper} index={currentIndex.value}>切换壁纸</Button>
+    return () => (<>
+      <div class={s.doorwrapper} >
+        <div class={[s.door, s.left]}></div>
+        <div class={[s.door, s.right]}></div>
+      </div>
+      <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
+        <Button onClick={setPaper} index={currentIndex.value} >切换壁纸</Button>
         <div class={s.wrapper_seciton}>
           <HomeLeft></HomeLeft>
           <HomeRight></HomeRight>
         </div>
       </div>
+    </>
     )
   }
 })
