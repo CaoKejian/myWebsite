@@ -1,7 +1,9 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, onMounted, PropType, ref } from 'vue';
 import { HomeLeft } from '../share/homeLeft';
 import { HomeRight } from '../share/homeRight';
 import s from './Home.module.scss';
+import '../assets/imgs/1.png'
+import { Button } from '../share/Button';
 export const Home = defineComponent({
   props: {
     name: {
@@ -9,15 +11,18 @@ export const Home = defineComponent({
     }
   },
   setup: (props, context) => {
+    const wrapper = ref<HTMLElement>()
+    const currentIndex = ref(0)
     const bgImages = [
-      '../assets/imgs/1.png',
-      '../assets/imgs/2.png',
-      '../assets/imgs/3.png',
-      '../assets/imgs/4.png',
-      '../assets/imgs/5.png',
+      "url('/src/assets/imgs/1.png')",
+      "url('/src/assets/imgs/2.png')",
+      "url('/src/assets/imgs/3.png')",
+      "url('/src/assets/imgs/4.png')",
+      "url('/src/assets/imgs/5.png')",
     ];
     return () => (
-      <div class={s.wrapper}>
+      <div class={s.wrapper} ref={wrapper} style={`background: ${bgImages[currentIndex.value]}`} >
+        <Button>切换壁纸</Button>
         <div class={s.wrapper_seciton}>
           <HomeLeft></HomeLeft>
           <HomeRight></HomeRight>

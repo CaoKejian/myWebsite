@@ -7,14 +7,12 @@
 .wrapper{
   width: 100%;
   height: 100vh;
-  background: url(../assets/imgs/5.png) no-repeat;
+  overflow: hidden;
   background-size: cover;
-  &_seciton{
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-  }
- 
-  
+}
+.wrapper_seciton{
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
 }
