@@ -13,12 +13,13 @@ export const SearchPage = defineComponent({
     const inputClick = (event: MouseEvent) => {
       event.preventDefault()
     }
-    const close = () => {
-
+    const gotoSearch = () => {
+      const url = `https://www.baidu.com/s?wd=${value.value}`;
+      window.open(url);
     }
     return () => (<>
       {/* <TransitionMade /> */}
-      <div class={s.wrapper} onClick={close}>
+      <div class={s.wrapper}>
         <div class={s.center}>
 
           {
@@ -33,6 +34,7 @@ export const SearchPage = defineComponent({
                   onClick={inputClick}
                   onFocus={() => isShow.value = true}
                   onBlur={() => isShow.value = false}
+                  onKeydown={(e) => e.keyCode === 13 && gotoSearch()}
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2}><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div> </> : <>
@@ -47,7 +49,7 @@ export const SearchPage = defineComponent({
                   onFocus={() => isShow.value = true}
                   onBlur={() => isShow.value = false}
                   placeholder='想要搜索点什么呢' />
-                <div class={s.ic2}><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
+                <div class={s.ic2} onClick={gotoSearch} ><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div>
             </>
           }
