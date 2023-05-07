@@ -1,0 +1,62 @@
+.left{
+  width: 50%;
+  font-family: Pacifico-Regular; 
+  user-select: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  .info{
+    width: 100%;
+    .logo{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .yuming{
+        width: 60%;
+        margin-left: 8px;
+        .span1{
+          font-size: 5rem;
+        }
+        .span2{
+          font-size: 2rem;
+        }
+      }
+      .svg{
+        width: 118px;
+        height: 118px;
+        
+      }
+    }
+    .description{
+      width: 76%;
+      margin-top: 64px;
+      padding: 8px;
+      overflow: hidden;
+      border-radius: 8px;
+      
+      .svg1,.svg2{
+        width: 1em;
+        height: 1em;
+        fill: white;
+      }
+      .svg2{
+        float: right;
+      }
+      .text{
+        font-size: 1.2em;
+        padding: 2px 36px;
+        :nth-child(2){
+          margin-top: 16px;
+        }
+      }
+      &:hover{
+        transform: scale(1.02)
+      }
+    }
+    .cards{
+      background: rgba(0,0,0,.2509803922);
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease;
+    }
+  } 
+}

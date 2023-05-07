@@ -1,4 +1,5 @@
 import { defineComponent, PropType, reactive, toRefs } from 'vue';
+import { useRouter } from 'vue-router';
 import { http } from '../../share/http';
 import s from './First.module.scss';
 export const First = defineComponent({
@@ -8,6 +9,7 @@ export const First = defineComponent({
     }
   },
   setup: (props, context) => {
+    const router = useRouter()
     const state = reactive({
       FormData: {
         email: '1849201815@qq.com',
@@ -29,6 +31,7 @@ export const First = defineComponent({
           alert(error.response.data)
         }
       })
+      router.push('/home')
     }
     return () => (<>
       <input class={s.email} type="email" v-model={FormData.value.email} />

@@ -15,5 +15,8 @@ export const routes: RouteRecordRaw[] = [
       { path: '3', component: Third, },
       { path: '4', component: Forth, }
     ]
+  },
+  {
+    path: '/home', component: () => import('../views/Home')
   }
 ]
