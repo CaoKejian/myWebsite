@@ -97,3 +97,8 @@
   backdrop-filter: blur(10px);
   transition: transform 0.4s ease;
 }
+@media (max-width: 780px) {
+  .right {
+    display: none;
+  }
+}

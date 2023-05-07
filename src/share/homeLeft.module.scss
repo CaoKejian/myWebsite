@@ -79,3 +79,13 @@
     height: 1.5em;
   }
 }
+@media (max-width: 780px) {
+  .left {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 380px) {
+  .svg {
+    display: none;
+  }
+}
