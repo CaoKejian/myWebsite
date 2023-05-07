@@ -9,6 +9,13 @@ export const Home = defineComponent({
     }
   },
   setup: (props, context) => {
+    const bgImages = [
+      '../assets/imgs/1.png',
+      '../assets/imgs/2.png',
+      '../assets/imgs/3.png',
+      '../assets/imgs/4.png',
+      '../assets/imgs/5.png',
+    ];
     return () => (
       <div class={s.wrapper}>
         <div class={s.wrapper_seciton}>
