@@ -5,6 +5,7 @@ import { TransitionMade } from './TransitionMade';
 import fetchJsonp from 'fetch-jsonp';
 import { Button } from './Button';
 import { useRouter } from 'vue-router';
+import { getDateTime, getDateNow } from './Time';
 type SResults = {
   q: string
   sa: string
@@ -20,6 +21,13 @@ export const SearchPage = defineComponent({
     const isShow = ref(false)
     const value = ref('')
     const searchResults = ref<SResults[]>([]);
+    const { date } = getDateTime()
+    const time = getDateNow()
+    const currentTime = ref(time)
+    currentTime.value = new Date().toLocaleTimeString();
+    setInterval(() => {
+      currentTime.value = new Date().toLocaleTimeString();
+    }, 1000);
     const inputClick = (event: MouseEvent) => {
       event.preventDefault()
     }
@@ -55,7 +63,6 @@ export const SearchPage = defineComponent({
       const url = `https://www.baidu.com/s?wd=${value.value}`;
       window.open(url);
     };
-
     const closeIsShow = () => {
       value.value = ''
       isShow.value = false
@@ -70,8 +77,8 @@ export const SearchPage = defineComponent({
           {
             isShow.value ? <>
               <div class={[s.data_active, s.date]}>
-                <span class={s.time}>20:20</span>
-                <span class={s.month}>5月7日 周日</span>
+                <span class={s.time}>{currentTime.value}</span>
+                <span class={s.month}>{date}</span>
               </div>
               <div class={[s.search, s.active]}>
                 <div class={s.ic1}><svg class={s.icon}><use xlinkHref='#baidu'></use></svg></div>
@@ -94,8 +101,8 @@ export const SearchPage = defineComponent({
               }
             </> : <>
               <div class={s.date}>
-                <span class={s.time}>20:20</span>
-                <span class={s.month}>5月7日 周日</span>
+                <span class={s.time}>{currentTime.value}</span>
+                <span class={s.month}>{date}</span>
               </div>
               <div class={s.search}>
                 <div class={s.ic1}><svg class={s.icon}><use xlinkHref='#baidu'></use></svg></div>
