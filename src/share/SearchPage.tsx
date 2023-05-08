@@ -63,6 +63,11 @@ export const SearchPage = defineComponent({
       const url = `https://www.baidu.com/s?wd=${value.value}`;
       window.open(url);
     };
+    watch(() => value.value, (nv) => {
+      if (nv === '') {
+        searchResults.value = []
+      }
+    })
     const closeIsShow = () => {
       value.value = ''
       isShow.value = false
@@ -90,11 +95,11 @@ export const SearchPage = defineComponent({
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2}><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div>
-              {searchResults.value.length === 0 ?
+              {searchResults.value?.length === 0 ?
                 <div></div> :
                 <div class={s.li}>
                   <ul>
-                    {searchResults.value.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
+                    {searchResults.value?.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
                   </ul>
                 </div>
               }
@@ -112,11 +117,11 @@ export const SearchPage = defineComponent({
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2} onClick={() => gotoSearch()} ><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div>
-              {searchResults.value.length === 0 ?
+              {searchResults.value?.length === 0 ?
                 <div></div> :
                 <div class={[s.liActive, s.li]}>
                   <ul>
-                    {searchResults.value.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
+                    {searchResults.value?.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
                   </ul>
                 </div>
               }
