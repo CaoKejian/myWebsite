@@ -34,7 +34,7 @@ body {
 	box-sizing: border-box;
 }
 body,html{
-  cursor: url('/public/normal.ico'),auto;
+  cursor: url('/normal.ico'),auto;
 
 }
 ol, ul {

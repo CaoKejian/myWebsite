@@ -94,7 +94,7 @@
 .cards{
   background: rgba(0,0,0,.2509803922);
   backdrop-filter: blur(10px);
-  cursor: url('/public/textSelect.ico'),auto;
+  cursor: url('/textSelect.ico'),auto;
   transition: transform 0.4s ease;
 }
 @media (max-width: 780px) {

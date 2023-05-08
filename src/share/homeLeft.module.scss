@@ -57,7 +57,7 @@
       background: rgba(0,0,0,.2509803922);
       backdrop-filter: blur(10px);
       transition: transform 0.4s ease;
-      cursor: url('/public/textSelect.ico'),auto;
+      cursor: url('/textSelect.ico'),auto;
     }
   } 
 }
@@ -81,7 +81,7 @@
   }
 }
   .curson{
-    cursor: url('/public/help.ico'),auto;
+    cursor: url('/help.ico'),auto;
   }
 @media (max-width: 780px) {
   .left {

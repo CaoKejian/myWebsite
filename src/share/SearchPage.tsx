@@ -66,7 +66,6 @@ export const SearchPage = defineComponent({
     const closeIsShow = () => {
       value.value = ''
       isShow.value = false
-      searchResults.value = []
     }
     const router = useRouter()
     return () => (<>
