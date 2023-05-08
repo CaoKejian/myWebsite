@@ -3,6 +3,8 @@ import { defineComponent, PropType, reactive, ref, watch } from 'vue';
 import s from './SearchPage.module.scss';
 import { TransitionMade } from './TransitionMade';
 import fetchJsonp from 'fetch-jsonp';
+import { Button } from './Button';
+import { useRouter } from 'vue-router';
 type SResults = {
   q: string
   sa: string
@@ -54,10 +56,16 @@ export const SearchPage = defineComponent({
       window.open(url);
     };
 
-
+    const closeIsShow = () => {
+      value.value = ''
+      isShow.value = false
+      searchResults.value = []
+    }
+    const router = useRouter()
     return () => (<>
-      {/* <TransitionMade /> */}
+      <TransitionMade />
       <div class={s.wrapper}>
+        <Button class={s.button} index={1} onClick={() => router.push('/home')}>去首页</Button>
         <div class={s.center}>
           {
             isShow.value ? <>
@@ -70,7 +78,7 @@ export const SearchPage = defineComponent({
                 <input type="text" v-model={value.value}
                   onClick={inputClick}
                   onFocus={() => isShow.value = true}
-                  onBlur={() => isShow.value = false}
+                  onBlur={closeIsShow}
                   onInput={(e) => inputOn(e)}
                   onKeydown={(e) => e.keyCode === 13 && gotoSearch()}
                   placeholder='想要搜索点什么呢' />
@@ -94,7 +102,7 @@ export const SearchPage = defineComponent({
                 <input type="text" v-model={value.value}
                   onClick={inputClick}
                   onFocus={() => isShow.value = true}
-                  onBlur={() => isShow.value = false}
+                  onBlur={closeIsShow}
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2} onClick={() => gotoSearch()} ><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div>
