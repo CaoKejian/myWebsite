@@ -87,7 +87,6 @@
       .icon{
         width: 1.5em;
         height: 1.5em;
-        cursor: pointer;
       }
       .ic1,.ic2{
         padding: 0 10px;
@@ -115,7 +114,6 @@
   >ul{
     >li{
       padding: 8px 6px;
-      cursor: pointer;
       border-radius: 10px;
       transition: all .3s;
       &:hover{

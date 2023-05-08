@@ -66,7 +66,6 @@
             max-width: 33.3333333333%;
             flex: 0 0 33.3333333333%;
             transition: transform 0.2s ease;
-            
             &:hover{
               transform: scale(1.05);
             }
@@ -95,6 +94,7 @@
 .cards{
   background: rgba(0,0,0,.2509803922);
   backdrop-filter: blur(10px);
+  cursor: url('/public/textSelect.ico'),auto;
   transition: transform 0.4s ease;
 }
 @media (max-width: 780px) {

@@ -38,19 +38,19 @@ export const HomeLeft = defineComponent({
               <a href="https://github.com/CaoKejian" target="_blank" onMouseover={() => (currentIndex.value = 0)}
                 onMouseleave={() => (currentIndex.value = -1)}
               >
-                <svg class={s.svg}><use xlinkHref='#github'></use></svg>
+                <svg class={[s.svg, s.curson]}><use xlinkHref='#github'></use></svg>
               </a>
               <a href="weixin://" target="_blank" onMouseover={() => (currentIndex.value = 1)}
                 onMouseleave={() => (currentIndex.value = -1)}>
-                <svg class={s.svg}><use xlinkHref='#wechat'></use></svg>
+                <svg class={[s.svg, s.curson]}><use xlinkHref='#wechat'></use></svg>
               </a>
               <a href="https://space.bilibili.com/1930084978?spm_id_from=333.1007.0.0" target="_blank" onMouseover={() => (currentIndex.value = 2)}
                 onMouseleave={() => (currentIndex.value = -1)}>
-                <svg class={s.svg}><use xlinkHref='#bilibili'></use></svg>
+                <svg class={[s.svg, s.curson]}><use xlinkHref='#bilibili'></use></svg>
               </a>
               <a href="https://im.qq.com/index/" target="_blank" onMouseover={() => (currentIndex.value = 3)}
                 onMouseleave={() => (currentIndex.value = -1)}>
-                <svg class={s.svg}><use xlinkHref='#qq'></use></svg>
+                <svg class={[s.svg, s.curson]}><use xlinkHref='#qq'></use></svg>
               </a>
             </div>
             {

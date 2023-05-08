@@ -1,0 +1,19 @@
+.wrapper{
+  display: flex;
+  height: 100vh;
+  height: 2000px; 
+  .left{
+    width: 16%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #f1f1f1;
+  }
+  .right{
+    margin-left: 16%;
+    flex: 1;
+    padding: 10px;
+    overflow-y: scroll;
+  }
+}

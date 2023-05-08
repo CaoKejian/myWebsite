@@ -5,6 +5,8 @@ import s from './Home.module.scss';
 import '../assets/imgs/1.png'
 import { Button } from '../share/Button';
 import { TransitionMade } from '../share/TransitionMade';
+import Vue from 'vue'
+
 export const Home = defineComponent({
   props: {
     name: {
@@ -25,7 +27,7 @@ export const Home = defineComponent({
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
     return () => (<>
-    <TransitionMade />
+      <TransitionMade />
       <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
         <Button onClick={setPaper} index={currentIndex.value} >切换壁纸</Button>
         <div class={s.wrapper_seciton}>

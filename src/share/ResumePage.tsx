@@ -8,7 +8,9 @@ export const ResumePage = defineComponent({
   },
   setup: (props, context) => {
     return () => (
-      <div>
+      <div class={s.wrapper}>
+        <div class={s.left}>1</div>
+        <div class={s.right}>2</div>
       </div>
     )
   }

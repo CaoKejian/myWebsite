@@ -35,7 +35,7 @@ export const HomeRight = defineComponent({
             </div>
             <div class={s.lis}>
               <div class={s.el} onClick={() => gotoDeatil('/resume')}>
-                <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#resume'></use></svg>简历</div>
+                <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#resume'></use></svg><span>简历</span></div>
               </div>
               <div class={s.el}>
                 <div class={[s.li, s.cards]}>  <svg class={s.svg}><use xlinkHref='#blog'></use></svg>博客</div>
