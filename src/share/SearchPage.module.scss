@@ -92,3 +92,29 @@
     }
   }
 }
+.li{
+  width: 45%;
+  border-radius: 10px;
+  position: absolute;
+  top:calc(40% + 188px);
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+  background-color: var(--main-background-color);
+  box-shadow: var(--main-search-shadow);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin: 0 auto;
+  >ul{
+    >li{
+      padding: 8px 6px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all .3s;
+      &:hover{
+        background-color: #f0eded60;
+        transform: translate(6px,-2px);
+      }
+    }
+  }
+}

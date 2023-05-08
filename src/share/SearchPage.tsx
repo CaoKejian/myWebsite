@@ -3,6 +3,11 @@ import { defineComponent, PropType, reactive, ref, watch } from 'vue';
 import s from './SearchPage.module.scss';
 import { TransitionMade } from './TransitionMade';
 import fetchJsonp from 'fetch-jsonp';
+type SResults = {
+  q: string
+  sa: string
+  type: string
+}
 export const SearchPage = defineComponent({
   props: {
     name: {
@@ -12,33 +17,37 @@ export const SearchPage = defineComponent({
   setup: (props, context) => {
     const isShow = ref(false)
     const value = ref('')
-    const searchResults = ref([]);
+    const searchResults = ref<SResults[]>([]);
     const inputClick = (event: MouseEvent) => {
       event.preventDefault()
     }
-    const handleSearchResults = (data: any) => {
-      searchResults.value = data.g;
-    };
-    const gotoSearch = () => {
+    const inputOn = (e: Event) => {
       const url = `https://www.baidu.com/sugrec?prod=pc&from=pc_web&json=1&wd=${value.value}`;
       fetchJsonp(url, {
         jsonpCallback: 'cb',
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           handleSearchResults(data);
         })
         .catch(error => {
-          console.error(error);
+          alert(error)
         });
+    }
+    const handleSearchResults = (data: any) => {
+      searchResults.value = data.g;
+      console.log(searchResults.value);
     };
-    
-    // const url = `https://www.baidu.com/s?wd=${value.value}`;
-    // window.open(url);
+    console.log(searchResults.value.length);
+
+    const gotoSearch = () => {
+      // const url = `https://www.baidu.com/s?wd=${value.value}`;
+      // window.open(url);
+    };
+
 
     return () => (<>
-      <TransitionMade />
+      {/* <TransitionMade /> */}
       <div class={s.wrapper}>
         <div class={s.center}>
           {
@@ -53,10 +62,21 @@ export const SearchPage = defineComponent({
                   onClick={inputClick}
                   onFocus={() => isShow.value = true}
                   onBlur={() => isShow.value = false}
+                  onInput={inputOn}
                   onKeydown={(e) => e.keyCode === 13 && gotoSearch()}
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2}><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
-              </div> </> : <>
+              </div>
+              {searchResults.value.length === 0 ?
+                <div></div> :
+                <div class={s.li}>
+                  <ul>
+                    {searchResults.value.map(item => <li>{item.q}</li>)}
+                  </ul>
+                </div>
+              }
+
+            </> : <>
               <div class={s.date}>
                 <span class={s.time}>20:20</span>
                 <span class={s.month}>5月7日 周日</span>
