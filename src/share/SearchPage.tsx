@@ -1,6 +1,8 @@
-import { defineComponent, PropType, ref } from 'vue';
+import axios from 'axios';
+import { defineComponent, PropType, reactive, ref, watch } from 'vue';
 import s from './SearchPage.module.scss';
 import { TransitionMade } from './TransitionMade';
+import fetchJsonp from 'fetch-jsonp';
 export const SearchPage = defineComponent({
   props: {
     name: {
@@ -10,18 +12,35 @@ export const SearchPage = defineComponent({
   setup: (props, context) => {
     const isShow = ref(false)
     const value = ref('')
+    const searchResults = ref([]);
     const inputClick = (event: MouseEvent) => {
       event.preventDefault()
     }
+    const handleSearchResults = (data: any) => {
+      searchResults.value = data.g;
+    };
     const gotoSearch = () => {
-      const url = `https://www.baidu.com/s?wd=${value.value}`;
-      window.open(url);
-    }
+      const url = `https://www.baidu.com/sugrec?prod=pc&from=pc_web&json=1&wd=${value.value}`;
+      fetchJsonp(url, {
+        jsonpCallback: 'cb',
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          handleSearchResults(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
+    
+    // const url = `https://www.baidu.com/s?wd=${value.value}`;
+    // window.open(url);
+
     return () => (<>
-      {/* <TransitionMade /> */}
+      <TransitionMade />
       <div class={s.wrapper}>
         <div class={s.center}>
-
           {
             isShow.value ? <>
               <div class={[s.data_active, s.date]}>
