@@ -24,5 +24,11 @@ export const routes: RouteRecordRaw[] = [
     children: [
       { path: "", component: () => import('../share/SearchPage') }
     ]
-  }
+  },
+  {
+    path: '/resume', component: () => import('../views/Resume'),
+    children: [
+      { path: "", component: () => import('../share/ResumePage') }
+    ]
+  },
 ]

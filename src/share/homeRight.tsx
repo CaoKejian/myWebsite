@@ -34,7 +34,7 @@ export const HomeRight = defineComponent({
               <span>网站列表</span>
             </div>
             <div class={s.lis}>
-              <div class={s.el}>
+              <div class={s.el} onClick={() => gotoDeatil('/resume')}>
                 <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#resume'></use></svg>简历</div>
               </div>
               <div class={s.el}>

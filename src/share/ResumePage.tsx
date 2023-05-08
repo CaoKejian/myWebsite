@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue';
-import { RouterView } from 'vue-router';
-export const Search = defineComponent({
+import s from './ResumePage.module.scss';
+export const ResumePage = defineComponent({
   props: {
     name: {
       type: String as PropType<string>
@@ -8,8 +8,9 @@ export const Search = defineComponent({
   },
   setup: (props, context) => {
     return () => (
-     <RouterView />
+      <div>
+      </div>
     )
   }
 })
-export default Search
+export default ResumePage

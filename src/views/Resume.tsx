@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import { RouterView } from 'vue-router';
-export const Search = defineComponent({
+export const Resume = defineComponent({
   props: {
     name: {
       type: String as PropType<string>
@@ -8,8 +8,8 @@ export const Search = defineComponent({
   },
   setup: (props, context) => {
     return () => (
-     <RouterView />
+      <RouterView />
     )
   }
 })
-export default Search
+export default Resume
