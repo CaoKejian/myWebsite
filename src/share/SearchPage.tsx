@@ -22,6 +22,9 @@ export const SearchPage = defineComponent({
       event.preventDefault()
     }
     const inputOn = (e: Event) => {
+      if (e) {
+        searchResults.value = []
+      }
       const url = `https://www.baidu.com/sugrec?prod=pc&from=pc_web&json=1&wd=${value.value}`;
       fetchJsonp(url, {
         jsonpCallback: 'cb',
@@ -36,13 +39,19 @@ export const SearchPage = defineComponent({
     }
     const handleSearchResults = (data: any) => {
       searchResults.value = data.g;
-      console.log(searchResults.value);
     };
-    console.log(searchResults.value.length);
 
-    const gotoSearch = () => {
-      // const url = `https://www.baidu.com/s?wd=${value.value}`;
-      // window.open(url);
+    const gotoSearch = (q?: string) => {
+      if (q) {
+        setTimeout(() => {
+          searchResults.value = []
+        }, 500)
+        const url = `https://www.baidu.com/s?wd=${q}`;
+        window.open(url);
+        return
+      }
+      const url = `https://www.baidu.com/s?wd=${value.value}`;
+      window.open(url);
     };
 
 
@@ -62,7 +71,7 @@ export const SearchPage = defineComponent({
                   onClick={inputClick}
                   onFocus={() => isShow.value = true}
                   onBlur={() => isShow.value = false}
-                  onInput={inputOn}
+                  onInput={(e) => inputOn(e)}
                   onKeydown={(e) => e.keyCode === 13 && gotoSearch()}
                   placeholder='想要搜索点什么呢' />
                 <div class={s.ic2}><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
@@ -71,11 +80,10 @@ export const SearchPage = defineComponent({
                 <div></div> :
                 <div class={s.li}>
                   <ul>
-                    {searchResults.value.map(item => <li>{item.q}</li>)}
+                    {searchResults.value.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
                   </ul>
                 </div>
               }
-
             </> : <>
               <div class={s.date}>
                 <span class={s.time}>20:20</span>
@@ -88,11 +96,18 @@ export const SearchPage = defineComponent({
                   onFocus={() => isShow.value = true}
                   onBlur={() => isShow.value = false}
                   placeholder='想要搜索点什么呢' />
-                <div class={s.ic2} onClick={gotoSearch} ><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
+                <div class={s.ic2} onClick={() => gotoSearch()} ><svg class={s.icon}><use xlinkHref='#search'></use></svg></div>
               </div>
+              {searchResults.value.length === 0 ?
+                <div></div> :
+                <div class={[s.liActive, s.li]}>
+                  <ul>
+                    {searchResults.value.map(item => <li onClick={() => gotoSearch(item.q)}>{item.q}</li>)}
+                  </ul>
+                </div>
+              }
             </>
           }
-
         </div>
 
       </div>
