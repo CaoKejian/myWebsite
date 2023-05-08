@@ -1,11 +1,11 @@
-import { defineComponent, onMounted, PropType, ref } from 'vue';
+import { defineComponent, inject, onMounted, PropType, ref } from 'vue';
 import { HomeLeft } from '../share/homeLeft';
 import { HomeRight } from '../share/homeRight';
 import s from './Home.module.scss';
 import '../assets/imgs/1.png'
 import { Button } from '../share/Button';
 import { TransitionMade } from '../share/TransitionMade';
-import Vue from 'vue'
+import createMessage from '../components/Message';
 
 export const Home = defineComponent({
   props: {
@@ -26,7 +26,9 @@ export const Home = defineComponent({
     const setPaper = () => {
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
+    createMessage({ type: 'success', message: '1' })
     return () => (<>
+      {/* <Message type='success' message="1"></Message> */}
       <TransitionMade />
       <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
         <Button onClick={setPaper} index={currentIndex.value} >切换壁纸</Button>

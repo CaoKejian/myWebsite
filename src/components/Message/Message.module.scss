@@ -1,0 +1,43 @@
+.down {
+  &-enter {
+    &-from {
+      transform: translate3d(0, -75px, 0);
+      opacity: 0;
+    }
+
+    &-active {
+      transition: all 0.5s;
+    }
+
+    &-to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+.glmessage {
+  height: 42px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25px;
+  line-height: 42px;
+  padding: 0 25px;
+  color: white;
+  border-radius: 3em;
+  background: var(--message-bg);
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  .svg{
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 8px;
+  }
+  .text{
+  color: #d1d4d5;
+    margin-left: 8px;
+  }
+}
