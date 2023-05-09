@@ -1,0 +1,99 @@
+img,.info_name,.normal_info{
+  cursor: url('/public/textSelect.ico'),auto;
+}
+.info_link div{
+  cursor: url('/public/help.ico'),auto;
+}
+hr{
+  border: 1px solid #bed7ff;
+}
+.left{
+  min-width: 13em;
+  height: 902px;
+  min-height: 902px;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: 0 0 5px #a1a1a1;
+  &_top{
+    background:linear-gradient(to bottom,#78abff,#fff) ;
+    .info_a{
+      width: 100%;
+      padding: 50px 0 0 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      height: auto;
+      >img{
+        width: 96px;
+        height: 96px;
+        border: 3px solid #fff;
+        box-shadow: 0 0 30px #fff;
+        border-radius: 96px;
+        object-fit: cover;
+        object-position:0 0;
+      }
+    }
+    .info_name{
+      font-weight: bold;
+      margin-top: 16px;
+      letter-spacing: 1px;
+    }
+    .info_link{
+      width: 100%;
+      padding: 16px 4px;
+      display: flex;
+      justify-content: space-evenly;
+      >div{
+        padding: 4px 8px;
+        background: #fff;
+        font-size: 0.8em;
+        color: #878585;
+        border-radius: 2em;
+        display: flex;
+        align-items: center;
+        .svg{
+          margin-right: 4px;
+          width: 1.5em;
+          height: 1.5em;
+          fill:#2fb0ec;
+        }
+      }
+    }
+  }
+  &_bottom{
+    .normalInfo{
+      display: flex;
+      flex-direction: column;
+      flex-wrap:wrap;
+      font-size: 0.8em;
+      padding: 0 16px;
+      .normal{
+        font-size: 1.4em;
+        margin-bottom: 4px;
+      }
+      .normal_info{
+        padding:4px 0;
+        transition: all .3s;
+        display: flex;
+        align-items: center;
+        .bar{
+          flex: 1;
+          padding: 0 8px;
+          height: 4px;
+          .process{
+            height: 4px;
+            background: #2fb0ec;
+          }
+        }
+      }
+      .normal_info:hover{
+        // transform: translate(4px,4px);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
