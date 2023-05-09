@@ -15,6 +15,7 @@ export const Home = defineComponent({
   },
   setup: (props, context) => {
     const currentIndex = ref(0)
+    const overflowShow = ref(false)
     const bgImages = [
       "url('/src/assets/imgs/1.png')",
       "url('/src/assets/imgs/2.png')",
@@ -27,13 +28,12 @@ export const Home = defineComponent({
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
     createMessage({ type: 'info', message: '欢迎来到我的主页' })
-    const overflowShow = ref(false)
     return () => (<>
       <TransitionMade />
       <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
         <Button onClick={setPaper} index={currentIndex.value} >切换壁纸</Button>
         <div class={s.wrapper_seciton}>
-          <HomeLeft></HomeLeft>
+          <HomeLeft v-model:show={overflowShow.value}></HomeLeft>
           <HomeRight></HomeRight>
         </div>
       </div>

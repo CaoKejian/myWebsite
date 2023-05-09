@@ -12,6 +12,7 @@ export const HomeLeft = defineComponent({
       type: String as PropType<string>
     }
   },
+  emits: ['update:show'],
   setup: (props, context) => {
     const currentIndex = ref(-1)
     const isShow = ref(false)
@@ -29,8 +30,10 @@ export const HomeLeft = defineComponent({
       2: '这是我学习的地方~',
       3: '打开QQ吧！',
     }
+    // emit[]
     const cardsClick = throttle(() => {
       isShow.value = !isShow.value
+      context.emit('update:show', isShow.value)
       if (isShow.value) {
         Object.assign(state.cardsInfo, {
           msg: 'Hello world',
