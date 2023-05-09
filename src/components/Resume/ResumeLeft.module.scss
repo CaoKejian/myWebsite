@@ -91,9 +91,14 @@ hr{
         }
       }
       .normal_info:hover{
-        // transform: translate(4px,4px);
         transform: scale(1.05);
       }
     }
   }
+}
+
+.button{
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }

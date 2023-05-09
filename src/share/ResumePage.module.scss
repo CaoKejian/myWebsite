@@ -15,8 +15,13 @@ hr{
   .right{
     margin-left: 13em;
     flex: 1;
-    padding: 10px;
     overflow-y: scroll;
-   
+    padding: 20px 0;
+    .resume{
+      width: 90%;
+      height: 100%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #aaa8a8;
+    }
   }
 }
