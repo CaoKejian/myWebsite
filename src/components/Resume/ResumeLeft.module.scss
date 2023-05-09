@@ -1,4 +1,4 @@
-img,.info_name,.normal_info{
+img,.info_name,.normal_info,.button_bottom .svg{
   cursor: url('/public/textSelect.ico'),auto;
 }
 .info_link div{
@@ -94,6 +94,15 @@ hr{
         transform: scale(1.05);
       }
     }
+  }
+}
+.button_bottom{
+  margin: 8px;
+  display: flex;
+  justify-content: flex-start;
+  .svg{
+    width: 2em;
+    height: 2em;
   }
 }
 

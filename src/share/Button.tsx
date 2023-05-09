@@ -8,7 +8,8 @@ export const Button = defineComponent({
     },
     onClick: {
       type: Function as PropType<(e: MouseEvent) => void>
-    }
+    },
+    
   },
   setup: (props, context) => {
     const bgImages = [

@@ -59,7 +59,9 @@ export const ResumeLeft = defineComponent({
               <div class={s.normal_info}>学校-青基智能科技工作室</div>
               <div class={s.normal_info}>全国大学生计算机设计大赛</div>
             </div>
-            <div><Button onClick={onClick}>关闭</Button></div>
+            <div class={s.button_bottom}>
+              <svg onClick={onClick} class={s.svg}><use xlinkHref='#novisibility'></use></svg>
+            </div>
           </div>
         </div>
         : <Button class={s.button} onClick={onTrue}>展开</Button>
