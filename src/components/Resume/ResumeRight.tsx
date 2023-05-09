@@ -2,12 +2,11 @@ import { defineComponent, PropType, ref } from 'vue';
 import s from './ResumeRight.module.scss';
 export const ResumeRight = defineComponent({
   props: {
-    name: {
-      type: String as PropType<string>
+    isChange: {
+      type: Boolean as PropType<boolean>
     }
   },
   setup: (props, context) => {
-    const isChange = ref(false)
     const ItemObj = ref([
       {
         name: '山竹记账(2023.01~2023.04)',
@@ -38,8 +37,71 @@ export const ResumeRight = defineComponent({
       }
     ])
     return () => (<>
-      {isChange.value ?
-        <div>1</div> :
+      {props.isChange ?
+        <div class={[s.right, s.active]}>
+          <div class={s.resume}>
+            <div class={s.re1}>
+              <span>曹珂俭</span>
+              <span>应聘前端工程师</span>
+            </div>
+            <div class={s.hr}><span>教育经历</span><div class={s.bar}></div></div>
+            <div class={s.re2}>
+              <span class={s.school}>黄河科技学院</span>
+              <span>数据科学与大数据技术（本科）</span>
+              <span>2020.09~2024.07</span>
+            </div>
+            <div class={s.hr}><span>自我介绍</span><div class={s.bar}></div></div>
+            <div class={s.re3}>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉 HTML5 和 CSS3 标准，能够编写语义化、兼容性良好的页面布局，并能够使用 CSS 预处理器（sass、less）提高样式代码的效率和可维护性。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+                熟练掌握 JavaScript 和 TypeScript，熟练Es6新特性，理解浏览器的工作原理，能够编写高质量、可维护的 JavaScript 代码。
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+                熟练掌握 Vue2、Vue3 框架及其生态系统，包括 Vue Router、Vuex、Axios 、pinia等，能够使用 Element-Plus 以及其他第三方库来构建高质量的前端应用程序。
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+                熟悉Vue3+Tsx语法开发项目。
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉前端工程化和模块化开发，了解 Webpack 和 Vite 等打包工具的使用和优化，能够使用模块化和组件化思想来组织前端代码和提高代码复用率。有从0到1开发项目并部署的经验。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练掌握微信小程序和 uni-app 开发，有使用官方 API 和第三方库来开发高质量的小程序经验。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>使用过 Node.js 和 MongoDB，了解 Express 等后端框架的使用，能够搭建简单的后端服务和实现数据交互。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉Linux基础命令，在校期间读过计算机网络等计算机基础重要书籍。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
+            </div>
+            <div class={s.hr}><span>项目经验</span><div class={s.bar}></div></div>
+            <div class={s.re4}>
+              {ItemObj.value.map(item => {
+                return <div class={s.mangosteen}>
+                  <svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+                  <span class={s.name}>{item.name}</span><br />
+                  <div class={s.technology}>项目技术栈:</div>
+                  <div class={s.technology_item}>
+                    &nbsp;&nbsp;前端：{item.technology[0].FrontEnd} <br />
+                    &nbsp;&nbsp;后端：{item.technology[1].BackEnd}
+                  </div>
+                  <div>项目预览:&nbsp;<a href={item.OnlineAddress}>{item.OnlineAddress}</a></div><br />
+                  <div>项目介绍:
+                    <div class={s.str}>
+                      {item.introduce.map(str => {
+                        return <><h3>&nbsp;&nbsp;{str}</h3><br /></>
+                      })}
+                    </div>
+                  </div>
+                </div>
+              })}
+            </div>
+            <div class={s.hr}><span>自我评价</span><div class={s.bar}></div></div>
+            <div class={s.re5}>
+              <div class={s.str}>
+                <div class={s.item}>
+                  <svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+                  <span>兴趣源于前端，我仍会持续努力</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> :
         <div class={s.right}>
           <div class={s.resume}>
             <div class={s.re1}>

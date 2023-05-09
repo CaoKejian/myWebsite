@@ -6,9 +6,9 @@ export const ResumePage = defineComponent({
   setup: (props, context) => {
     const isChange = ref(false)
     return () => (
-      <div class={s.wrapper}>
+      <div class={s.wrapper} >
         <ResumeLeft v-model:show={isChange.value}></ResumeLeft>
-        <ResumeRight></ResumeRight>
+        <ResumeRight isChange={isChange.value}></ResumeRight>
       </div >
     )
   }

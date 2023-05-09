@@ -18,6 +18,7 @@ hr{
   bottom: 0;
   background-color: #fff;
   box-shadow: 0 0 5px #a1a1a1;
+  transition: all .5s;
   &_top{
     background:linear-gradient(to bottom,#78abff,#fff) ;
     .info_a{

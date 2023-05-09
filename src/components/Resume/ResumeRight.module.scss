@@ -17,6 +17,7 @@ hr{
   flex: 1;
   overflow-y: scroll;
   padding: 20px 0;
+  transition: all .5s;
   .resume{
     width: 80%;
     height: 100%;
@@ -99,4 +100,7 @@ hr{
       }
     }
   }
+}
+.active{
+  margin-left: 0;
 }
