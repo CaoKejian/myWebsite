@@ -6,6 +6,7 @@ import fetchJsonp from 'fetch-jsonp';
 import { Button } from './Button';
 import { useRouter } from 'vue-router';
 import { getDateTime, getDateNow } from './Time';
+import createMessage from '../components/Message';
 type SResults = {
   q: string
   sa: string
@@ -28,6 +29,7 @@ export const SearchPage = defineComponent({
     setInterval(() => {
       currentTime.value = new Date().toLocaleTimeString();
     }, 1000);
+    createMessage({ type: 'info', message: '欢迎来到搜索页' })
     const inputClick = (event: MouseEvent) => {
       event.preventDefault()
     }

@@ -6,17 +6,19 @@ type Props = {
   duration?: number
 }
 const div = document.createElement('div')
-div.setAttribute('class', 'gl-message')
+div.setAttribute('class', 'glmessage')
 document.body.appendChild(div)
 // 定时器
 let timer = ref<any>(null)
 export default function createMessage({ type, message, duration = 3000 }: Props) {
-  const vNode = h(Message, { type, message })
-  render(vNode, div)
-  timer && clearTimeout(timer.value)
-  timer.value = setTimeout(() => {
-    render(null, div)
-  }, duration)
+  setTimeout(() => {
+    const vNode = h(Message, { type, message })
+    render(vNode, div)
+    timer && clearTimeout(timer.value)
+    timer.value = setTimeout(() => {
+      render(null, div)
+    }, duration)
+  }, 1000)
 }
 
 Message.sussess = (message: string, duration?: number) => {

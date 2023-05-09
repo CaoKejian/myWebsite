@@ -26,9 +26,8 @@ export const Home = defineComponent({
     const setPaper = () => {
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
-    createMessage({ type: 'success', message: '1' })
+    createMessage({ type: 'info', message: '欢迎来到我的主页' })
     return () => (<>
-      {/* <Message type='success' message="1"></Message> */}
       <TransitionMade />
       <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
         <Button onClick={setPaper} index={currentIndex.value} >切换壁纸</Button>
