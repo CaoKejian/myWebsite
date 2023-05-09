@@ -1,4 +1,5 @@
-import { defineComponent, PropType, ref } from 'vue';
+import { defineComponent, onMounted, PropType, ref } from 'vue';
+import { Button } from '../../share/Button';
 import s from './ResumeRight.module.scss';
 export const ResumeRight = defineComponent({
   props: {
@@ -7,6 +8,13 @@ export const ResumeRight = defineComponent({
     }
   },
   setup: (props, context) => {
+    const isShowButton = ref(false)
+    const myDiv = ref<HTMLDivElement>();
+    onMounted(() => {
+      if (myDiv.value === undefined) { return }
+      console.log(myDiv.value);
+    });
+
     const ItemObj = ref([
       {
         name: '山竹记账(2023.01~2023.04)',
@@ -69,7 +77,7 @@ export const ResumeRight = defineComponent({
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
             </div>
-            <div class={s.hr}><span>项目经验</span><div class={s.bar}></div></div>
+            <div class={s.hr} ref={myDiv}><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {
                 return <div class={s.mangosteen}>
@@ -133,7 +141,7 @@ export const ResumeRight = defineComponent({
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
             </div>
-            <div class={s.hr}><span>项目经验</span><div class={s.bar}></div></div>
+            <div class={s.hr} ref={myDiv}><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {
                 return <div class={s.mangosteen}>
@@ -166,6 +174,10 @@ export const ResumeRight = defineComponent({
             </div>
           </div>
         </div>
+      }
+      {isShowButton.value ?
+        <Button class={s.button}>回到<br />顶部</Button>
+        : <div></div>
       }
     </>
     )

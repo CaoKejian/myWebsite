@@ -1,6 +1,11 @@
 import { Divider } from 'vant';
-import { defineComponent, PropType, ref } from 'vue';
+import { defineComponent, PropType, reactive, ref, watch } from 'vue';
 import s from './homeLeft.module.scss';
+import { throttle } from './throttle';
+type CardInfo = {
+  msg: string
+  dayMsg: string
+}
 export const HomeLeft = defineComponent({
   props: {
     name: {
@@ -9,12 +14,43 @@ export const HomeLeft = defineComponent({
   },
   setup: (props, context) => {
     const currentIndex = ref(-1)
+    const isShow = ref(false)
+    const state = reactive<{
+      cardsInfo: CardInfo
+    }>({
+      cardsInfo: {
+        msg: 'Hello world',
+        dayMsg: '一个建立于 21 世纪的个人网站，存活于互联网的边缘'
+      }
+    })
     const linkMap: Record<number, string> = {
       0: '访问我的github吧',
       1: '请联系我wx：YYik021',
       2: '这是我学习的地方~',
       3: '打开QQ吧！',
     }
+    const cardsClick = () => {
+      if (isShow.value) {
+        Object.assign(state.cardsInfo, {
+          msg: 'Hello world',
+          dayMsg: '一个建立于 21 世纪的个人网站，存活于互联网的边缘'
+        })
+        thro()
+        return
+      } else {
+        Object.assign(state.cardsInfo, {
+          msg: '你怎么知道可以点呀',
+          dayMsg: '快点去学习吧~'
+        })
+        thro()
+      }
+    }
+    const thro = throttle(() => {
+      isShow.value = !isShow.value
+    }, 5000)
+    watch(() => isShow.value, (n) => {
+
+    })
     return () => (
       <section class={s.left}>
         <div class={s.info}>
@@ -25,11 +61,11 @@ export const HomeLeft = defineComponent({
               <span class={s.span2}>.top</span>
             </div>
           </div>
-          <div class={[s.description, s.cards]}>
+          <div class={[s.description, s.cards]} onClick={cardsClick}>
             <svg class={s.svg1}><use xlinkHref='#fmarks'></use></svg>
             <div class={s.text}>
-              <p>Hello World !</p>
-              <p style={"font-size:0.8em;"}>一个建立于 21 世纪的个人网站，存活于互联网的边缘</p>
+              <p>{state.cardsInfo.msg}</p>
+              <p style={"font-size:0.8em;"}>{state.cardsInfo.dayMsg}</p>
             </div>
             <svg class={s.svg2}><use xlinkHref='#lmarks'></use></svg>
           </div>

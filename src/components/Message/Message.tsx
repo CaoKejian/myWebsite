@@ -35,7 +35,7 @@ export const Message = defineComponent({
     } else if (setTime < 14) {
       mes.value = '中午好'
     } else if (setTime < 20) {
-      mes.value = '晚上好'
+      mes.value = '傍晚好'
     }
     const style = {
       warning: {

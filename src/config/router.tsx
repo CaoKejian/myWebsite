@@ -5,7 +5,7 @@ import { Second } from '../components/Welcome/second';
 import { Third } from '../components/Welcome/third';
 
 export const routes: RouteRecordRaw[] = [
-  { path: '/', redirect: '/welcome' },
+  { path: '/', redirect: '/home' },
   {
     path: '/welcome', component: () => import('../views/Welcome'),
     children: [

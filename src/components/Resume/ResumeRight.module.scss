@@ -1,8 +1,8 @@
 img,.info_name,.normal_info{
-  cursor: url('/public/textSelect.ico'),auto;
+  cursor: url('/textSelect.ico'),auto;
 }
 .info_link div,a{
-  cursor: url('/public/help.ico'),auto;
+  cursor: url('/help.ico'),auto;
 }
 hr{
   border: 1px solid #bed7ff;
@@ -11,6 +11,11 @@ hr{
   width: 1em;
   height: 1em;
   margin-right: 4px;
+}
+.button{
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
 }
 .right{
   margin-left: 13em;
