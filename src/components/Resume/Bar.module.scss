@@ -1,0 +1,21 @@
+.normal_info{
+  padding:4px 0;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  >span{
+    width: 50%;
+  }
+  .bar{
+    flex: 1;
+    padding: 0 8px;
+    height: 4px;
+    .process{
+      height: 4px;
+      background: #2fb0ec;
+    }
+  }
+}
+.normal_info:hover{
+  transform: scale(1.05);
+}
