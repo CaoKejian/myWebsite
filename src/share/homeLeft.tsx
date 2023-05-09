@@ -29,28 +29,21 @@ export const HomeLeft = defineComponent({
       2: '这是我学习的地方~',
       3: '打开QQ吧！',
     }
-    const cardsClick = () => {
+    const cardsClick = throttle(() => {
+      isShow.value = !isShow.value
       if (isShow.value) {
         Object.assign(state.cardsInfo, {
           msg: 'Hello world',
           dayMsg: '一个建立于 21 世纪的个人网站，存活于互联网的边缘'
         })
-        thro()
         return
       } else {
         Object.assign(state.cardsInfo, {
           msg: '你怎么知道可以点呀',
           dayMsg: '快点去学习吧~'
         })
-        thro()
       }
-    }
-    const thro = throttle(() => {
-      isShow.value = !isShow.value
-    }, 5000)
-    watch(() => isShow.value, (n) => {
-
-    })
+    }, 1000)
     return () => (
       <section class={s.left}>
         <div class={s.info}>
@@ -61,9 +54,9 @@ export const HomeLeft = defineComponent({
               <span class={s.span2}>.top</span>
             </div>
           </div>
-          <div class={[s.description, s.cards]} onClick={cardsClick}>
+          <div class={[s.description, s.cards]}>
             <svg class={s.svg1}><use xlinkHref='#fmarks'></use></svg>
-            <div class={s.text}>
+            <div class={s.text} onClick={cardsClick}>
               <p>{state.cardsInfo.msg}</p>
               <p style={"font-size:0.8em;"}>{state.cardsInfo.dayMsg}</p>
             </div>

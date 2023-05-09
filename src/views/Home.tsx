@@ -27,6 +27,7 @@ export const Home = defineComponent({
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
     createMessage({ type: 'info', message: '欢迎来到我的主页' })
+    const overflowShow = ref(false)
     return () => (<>
       <TransitionMade />
       <div class={s.wrapper} style={`background: ${bgImages[currentIndex.value]};  background-size: cover;`} key={"bgImages[currentIndex.value]"}>
@@ -36,6 +37,11 @@ export const Home = defineComponent({
           <HomeRight></HomeRight>
         </div>
       </div>
+      {
+        overflowShow.value ?
+          <div class={s.overflow}></div>
+          : <div></div>
+      }
     </>
     )
   }

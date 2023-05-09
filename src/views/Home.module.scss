@@ -38,3 +38,12 @@
     transform: scale(1.0);
   }
 }
+.overflow{
+  width: 50%;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, .8); /* 半透明黑色 */
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  z-index: 999;
+}
