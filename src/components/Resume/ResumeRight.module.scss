@@ -1,0 +1,102 @@
+img,.info_name,.normal_info{
+  cursor: url('/public/textSelect.ico'),auto;
+}
+.info_link div,a{
+  cursor: url('/public/help.ico'),auto;
+}
+hr{
+  border: 1px solid #bed7ff;
+}
+.svg{
+  width: 1em;
+  height: 1em;
+  margin-right: 4px;
+}
+.right{
+  margin-left: 13em;
+  flex: 1;
+  overflow-y: scroll;
+  padding: 20px 0;
+  .resume{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 20px #aaa8a8;
+    padding: 20px 30px;
+    .re1{
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
+      :nth-child(1){
+        font-size:2em;
+      }
+      :nth-child(2){
+        margin-top: 8px;
+        font-weight: bold;
+      }
+    }
+    .hr{
+      display: flex;
+      align-items: center;
+      margin-top: 18px;
+      >span{
+        font-size: 1.2em;
+        color: #2f5785;
+      }
+      .bar{
+        margin-left: 16px;
+        flex: 1;
+        height: 3px;
+        background:#8ea4bd;
+      }
+    }
+    .re2{
+      margin: 16px 0;
+      display: flex;
+      .school{
+        font-weight: bold;
+      }
+      :nth-child(2){
+        flex: 1;
+        margin-left: 8px;
+      }
+    }
+    .re3{
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      >span{
+        margin-bottom:8px;
+      }
+      
+    }
+    .re4{
+      margin: 16px 0;
+      .mangosteen{
+        .name{
+          font-weight: bold;
+        }
+        .technology{
+          margin-top: 8px;
+        }
+        .technology_item{
+          margin: 8px;
+        }
+        .str{
+          margin: 8px 0;
+          color: #585656;
+        }
+      }
+    }
+    .re5{
+      margin: 16px 0;
+      .str{
+        padding: 8px 0;
+        .item{
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
