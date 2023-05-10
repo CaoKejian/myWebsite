@@ -59,7 +59,13 @@ export const HomeRight = defineComponent({
     // 获取城市天气（易客云）
     const getWeather = async (cityName: string) => {
       try {
+        const currentTimestamp = new Date().getTime();
+        const timeStamp = Number(localStorage.getItem('timeStamp'))
         const weatherLocal = localStorage.getItem('weather')
+        const diff = (currentTimestamp - timeStamp) / 1000 / 60;
+        if (diff > 30) {
+          localStorage.removeItem('weather')
+        }
         if (weatherLocal !== null) return
         const appidLocal = localStorage.getItem('appid')
         const cityId = await getCityId(cityName);
@@ -70,13 +76,13 @@ export const HomeRight = defineComponent({
         const data = await response.json();
         const { win, win_speed, tem, wea } = data;
         localStorage.setItem('weather', JSON.stringify(data))
+        localStorage.setItem('timeStamp', JSON.stringify(currentTimestamp))
         Object.assign(cityTemp.value, {
           air: win_speed,
           wea: wea,
           win: win,
           tem: tem
         });
-
       } catch (error) {
         createMessage({ type: "error", message: "获取天气信息错误" })
       }
