@@ -29,7 +29,6 @@ export const HomeRight = defineComponent({
     }
     const handleSearchResults = (data: any) => {
       city.value = data.city
-      console.log(city.value);
       localStorage.setItem('city', data.city)
     };
     // 获取地理位置（高德）
@@ -62,6 +61,7 @@ export const HomeRight = defineComponent({
         const currentTimestamp = new Date().getTime();
         const timeStamp = Number(localStorage.getItem('timeStamp'))
         const weatherLocal = localStorage.getItem('weather')
+        cityTemp.value = JSON.parse(localStorage.getItem('weather') as string)
         const diff = (currentTimestamp - timeStamp) / 1000 / 60;
         if (diff > 30) {
           localStorage.removeItem('weather')
@@ -93,6 +93,11 @@ export const HomeRight = defineComponent({
       getWeather(localCity.value || city.value)
     })
     const { currentTime, date, month, year } = getDateNow()
+    const time = ref(currentTime)
+    time.value = new Date().toLocaleTimeString();
+    setInterval(() => {
+      time.value = new Date().toLocaleTimeString();
+    }, 1000)
     const { dayOfWeek } = getDateTime()
     return () => (
       <section class={s.right}>
@@ -104,7 +109,7 @@ export const HomeRight = defineComponent({
             </div>
             <div class={[s.fn, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club/#')}>
               <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
-              <span class={s.time}>{currentTime}</span>
+              <span class={s.time}>{time.value}</span>
               <span>{localCity.value || city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} {cityTemp.value.air}</span>
             </div>
           </div>

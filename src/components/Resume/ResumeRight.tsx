@@ -13,7 +13,6 @@ export const ResumeRight = defineComponent({
     onMounted(() => {
       if (myDiv.value === undefined) { return }
       console.log(myDiv.value);
-      
     });
 
     const ItemObj = ref([
@@ -89,7 +88,7 @@ export const ResumeRight = defineComponent({
                     &nbsp;&nbsp;前端：{item.technology[0].FrontEnd} <br />
                     &nbsp;&nbsp;后端：{item.technology[1].BackEnd}
                   </div>
-                  <div>项目预览:&nbsp;<a href={item.OnlineAddress}>{item.OnlineAddress}</a></div><br />
+                  <div>项目预览:&nbsp;<a href={item.OnlineAddress} target="_blank">{item.OnlineAddress}</a></div><br />
                   <div>项目介绍:
                     <div class={s.str}>
                       {item.introduce.map(str => {

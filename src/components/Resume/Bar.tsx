@@ -17,6 +17,7 @@ export const Bar = defineComponent({
         <span>{props.name}</span>
         <div class={s.bar}>
           <div class={s.process} style={{ width: `${props.process}` }}></div>
+          <span>{props.process}</span>
         </div>
       </div>
     )

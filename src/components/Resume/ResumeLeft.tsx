@@ -27,8 +27,8 @@ export const ResumeLeft = defineComponent({
               <img src="/src/assets/imgs/meself.jpg" alt="曹珂俭" />
               <span class={s.info_name}>曹珂俭</span>
               <div class={s.info_link}>
-                <div><svg class={s.svg}><use xlinkHref='#github_a'></use></svg>github</div>
-                <div><svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</div>
+                <div ><svg class={s.svg}><use xlinkHref='#github_a'></use></svg><a href='https://github.com/CaoKejian' target="_blank">github</a></div>
+                <div><svg class={s.svg}><use xlinkHref='#juejin'></use></svg><a href='https://juejin.cn/user/1438634830203342' target="_blank">掘金</a></div>
               </div>
             </div>
           </div>
@@ -45,6 +45,7 @@ export const ResumeLeft = defineComponent({
               <span class={[s.normal]}>专业技能</span>
               <Bar name={"Html"} process={'75%'}></Bar>
               <Bar name={"CSS3"} process={'65%'}></Bar>
+              <Bar name={"Vue2"} process={'65%'}></Bar>
               <Bar name={"Vue2"} process={'65%'}></Bar>
               <Bar name={"JavaScript"} process={'55%'}></Bar>
               <Bar name={"TypeScript"} process={'25%'}></Bar>

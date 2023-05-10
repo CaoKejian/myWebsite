@@ -13,9 +13,14 @@
     flex: 1;
     padding: 0 8px;
     height: 4px;
+    display: flex;
+    align-items: center;
     .process{
       height: 4px;
       background: #2fb0ec;
+    }
+    >span{
+      transform: scale(0.7);
     }
   }
 }
