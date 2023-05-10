@@ -39,11 +39,31 @@
   }
 }
 .overflow{
-  width: 50%;
-  height: 80vh;
-  background-color: rgba(0, 0, 0, .8); /* 半透明黑色 */
+  user-select: none;
+  width: 40%;
+  height: 70vh;
+  background-color: var(--box-bg); 
+  backdrop-filter: blur(10px);
   position: absolute;
-  right: 60px;
-  top: 60px;
+  right: 10%;
+  transform: translate(0,-50%);
+  top: 50%;
   z-index: 999;
+  border-radius: 8px;
+  padding: 30px 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  >h1{
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  :nth-child(2){
+    margin-top: 36px;
+  }
+  >span{
+    margin: 8px 0;
+  }
+  
 }

@@ -26,8 +26,7 @@ export const Bar = defineComponent({
 export const BigBar = defineComponent({
   props: {
     process: {
-      type: String as PropType<string>,
-      default: "50%"
+      type: String as PropType<string>
     }
   },
   setup: (props, context) => {

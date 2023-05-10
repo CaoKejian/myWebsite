@@ -13,6 +13,7 @@ export const ResumeRight = defineComponent({
     onMounted(() => {
       if (myDiv.value === undefined) { return }
       console.log(myDiv.value);
+      
     });
 
     const ItemObj = ref([

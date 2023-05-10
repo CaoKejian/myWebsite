@@ -36,14 +36,14 @@ export const HomeLeft = defineComponent({
       context.emit('update:show', isShow.value)
       if (isShow.value) {
         Object.assign(state.cardsInfo, {
-          msg: 'Hello world',
-          dayMsg: '一个建立于 21 世纪的个人网站，存活于互联网的边缘'
+          msg: '你怎么知道可以点呀,再点击一次可以关闭哟',
+          dayMsg: '快点去学习吧~'
         })
         return
       } else {
         Object.assign(state.cardsInfo, {
-          msg: '你怎么知道可以点呀',
-          dayMsg: '快点去学习吧~'
+          msg: 'Hello world',
+          dayMsg: '一个建立于 21 世纪的个人网站，存活于互联网的边缘'
         })
       }
     }, 1000)

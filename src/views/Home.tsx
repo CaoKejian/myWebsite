@@ -6,6 +6,8 @@ import '../assets/imgs/1.png'
 import { Button } from '../share/Button';
 import { TransitionMade } from '../share/TransitionMade';
 import createMessage from '../components/Message';
+import { Bar, BigBar } from '../components/Resume/Bar';
+import { getDateNow, getDateTime } from '../share/Time';
 
 export const Home = defineComponent({
   props: {
@@ -27,6 +29,7 @@ export const Home = defineComponent({
     const setPaper = () => {
       currentIndex.value = Math.floor(Math.random() * bgImages.length)
     }
+    const { currentTime, bit, week, dayOfWeek, date, monthBit, month, yearBit } = getDateNow()
     createMessage({ type: 'info', message: '欢迎来到我的主页' })
     return () => (<>
       <TransitionMade />
@@ -39,7 +42,17 @@ export const Home = defineComponent({
       </div>
       {
         overflowShow.value ?
-          <div class={s.overflow}></div>
+          <div class={s.overflow}>
+            <h1>时光胶囊</h1>
+            <span>今日已度过了 {currentTime.slice(0, 2)} 小时</span>
+            <BigBar process={bit}></BigBar>
+            <span>本周已度过了 {dayOfWeek} 天</span>
+            <BigBar process={week}></BigBar>
+            <span>本月已度过了 {date} 天</span>
+            <BigBar process={monthBit}></BigBar>
+            <span>今年已度过了 {month} 个月</span>
+            <BigBar process={yearBit}></BigBar>
+          </div>
           : <div></div>
       }
     </>

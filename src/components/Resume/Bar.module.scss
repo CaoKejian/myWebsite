@@ -1,3 +1,6 @@
+.bar{
+  cursor: url('/textSelect.ico'),auto;
+}
 .normal_info{
   padding:4px 0;
   transition: all .3s;
@@ -27,9 +30,9 @@
   .bar{
     padding: 3px 2px;
     border-radius: .5em;
-    width: 50%;
     color: #000;
     background: #fff;
     text-align: center;
+    transition: width 1s ease;
   }
 }
