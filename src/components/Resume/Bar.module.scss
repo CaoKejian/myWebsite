@@ -19,3 +19,17 @@
 .normal_info:hover{
   transform: scale(1.05);
 }
+.process{
+  margin: 8px 0;
+  width: 100%;
+  background: rgba(14, 14, 14, 0.251);
+  border-radius: .5em;
+  .bar{
+    padding: 3px 2px;
+    border-radius: .5em;
+    width: 50%;
+    color: #000;
+    background: #fff;
+    text-align: center;
+  }
+}
