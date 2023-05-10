@@ -14,6 +14,7 @@ export const HomeRight = defineComponent({
   setup: (props, context) => {
     const router = useRouter()
     const city = ref('')
+    const localCity = ref('')
     const cityTemp = ref({
       air: '',
       wea: '', //天气
@@ -28,9 +29,13 @@ export const HomeRight = defineComponent({
     }
     const handleSearchResults = (data: any) => {
       city.value = data.city
+      console.log(city.value);
+      localStorage.setItem('city', data.city)
     };
     // 获取地理位置（高德）
     const getLocation = () => {
+      const localInfo = localStorage.getItem('city')
+      if (localInfo !== null) return
       const url = 'https://restapi.amap.com/v3/ip?key=7ef462c39299f921a8a2557ad84c2cb2';
       fetchJsonp(url, { jsonpCallback: 'callback' })
         .then(response => response.json())
@@ -39,38 +44,47 @@ export const HomeRight = defineComponent({
     }
     const getAppId = () => '99368856'
     const getAppSecret = () => 'yJf63oaQ'
-     // 获取位置对应的城市id（易客云）
+    // 获取位置对应的城市id（易客云）
     const getCityId = async (cityName: string) => {
+      const localInfo = localStorage.getItem('appid')
+      if (localInfo !== null) return
       const url = `https://tianqiapi.com/api?version=v6&appid=${getAppId()}&appsecret=${getAppSecret()}&city=${cityName}`;
       const response = await fetchJsonp(url, {
         jsonpCallback: 'callback',
       });
       const data = await response.json();
+      localStorage.setItem('appid', data.cityid)
       return data.cityid;
     };
-     // 获取城市天气（易客云）
+    // 获取城市天气（易客云）
     const getWeather = async (cityName: string) => {
       try {
+        const weatherLocal = localStorage.getItem('weather')
+        if (weatherLocal !== null) return
+        const appidLocal = localStorage.getItem('appid')
         const cityId = await getCityId(cityName);
-        const weatherUrl = `https://tianqiapi.com/free/day?appid=${getAppId()}&appsecret=${getAppSecret()}&cityid=${cityId}`;
+        const weatherUrl = `https://tianqiapi.com/free/day?appid=${getAppId()}&appsecret=${getAppSecret()}&cityid=${appidLocal || cityId}`;
         const response = await fetchJsonp(weatherUrl, {
           jsonpCallback: 'callback',
         });
         const data = await response.json();
         const { win, win_speed, tem, wea } = data;
+        localStorage.setItem('weather', JSON.stringify(data))
         Object.assign(cityTemp.value, {
           air: win_speed,
           wea: wea,
           win: win,
           tem: tem
         });
+
       } catch (error) {
         createMessage({ type: "error", message: "获取天气信息错误" })
       }
     };
     onMounted(() => {
+      localCity.value = localStorage.getItem('city') as string;
       getLocation()
-      getWeather(city.value)
+      getWeather(localCity.value || city.value)
     })
     const { currentTime, date, month, year } = getDateNow()
     const { dayOfWeek } = getDateTime()
@@ -85,7 +99,7 @@ export const HomeRight = defineComponent({
             <div class={[s.fn, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club/#')}>
               <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
               <span class={s.time}>{currentTime}</span>
-              <span>{city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} {cityTemp.value.air}</span>
+              <span>{localCity.value || city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} {cityTemp.value.air}</span>
             </div>
           </div>
           <div class={s.links}>
