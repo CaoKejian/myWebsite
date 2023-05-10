@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { defineComponent, PropType, reactive, ref, watch } from 'vue';
 import s from './SearchPage.module.scss';
 import { TransitionMade } from './TransitionMade';
@@ -23,11 +22,11 @@ export const SearchPage = defineComponent({
     const value = ref('')
     const searchResults = ref<SResults[]>([]);
     const { date } = getDateTime()
-    const time = getDateNow()
-    const currentTime = ref(time)
-    currentTime.value = new Date().toLocaleTimeString();
+    const { currentTime } = getDateNow()
+    const currentTime1 = ref(currentTime)
+    currentTime1.value = new Date().toLocaleTimeString();
     setInterval(() => {
-      currentTime.value = new Date().toLocaleTimeString();
+      currentTime1.value = new Date().toLocaleTimeString();
     }, 1000);
     createMessage({ type: 'info', message: '欢迎来到搜索页' })
     const inputClick = (event: MouseEvent) => {
@@ -39,7 +38,7 @@ export const SearchPage = defineComponent({
       }
       const url = `https://www.baidu.com/sugrec?prod=pc&from=pc_web&json=1&wd=${value.value}`;
       fetchJsonp(url, {
-        jsonpCallback: 'cb',
+        jsonpCallback: 'callback',
       })
         .then(response => response.json())
         .then(data => {
@@ -83,7 +82,7 @@ export const SearchPage = defineComponent({
           {
             isShow.value ? <>
               <div class={[s.data_active, s.date]}>
-                <span class={s.time}>{currentTime.value}</span>
+                <span class={s.time}>{currentTime1.value}</span>
                 <span class={s.month}>{date}</span>
               </div>
               <div class={[s.search, s.active]}>
@@ -107,7 +106,7 @@ export const SearchPage = defineComponent({
               }
             </> : <>
               <div class={s.date}>
-                <span class={s.time}>{currentTime.value}</span>
+                <span class={s.time}>{currentTime1.value}</span>
                 <span class={s.month}>{date}</span>
               </div>
               <div class={s.search}>
