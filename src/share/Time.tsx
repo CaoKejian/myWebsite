@@ -8,7 +8,7 @@ export const getDateTime = () => {
   const dayOfWeek = daysOfWeek[day];
   const todayStr = `${month}月${date}日 ${dayOfWeek}`;
   const currentTime = new Date().toLocaleTimeString();
-  return { date: todayStr, time: currentTime };
+  return { date: todayStr, time: currentTime,dayOfWeek };
 }
 export const getDateNow = () => {
   let currentTime = new Date().toLocaleTimeString();
@@ -30,5 +30,6 @@ export const getDateNow = () => {
   const month = today.getMonth() + 1;
   const monthBit = Number((date / 30).toFixed(2)) * 100 + '%'
   const yearBit = Number((month / 12).toFixed(2)) * 100 + '%'
-  return { currentTime, bit, week, dayOfWeek, month, date, monthBit, yearBit }
+  const year = today.getFullYear();
+  return { currentTime, bit, week, dayOfWeek, month, date, monthBit, yearBit, year }
 }

@@ -1,6 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { useRouter } from 'vue-router';
 import s from './homeRight.module.scss';
+import { getDateNow, getDateTime } from './Time';
 export const HomeRight = defineComponent({
   props: {
     name: {
@@ -15,6 +16,8 @@ export const HomeRight = defineComponent({
     const gotoDeatil = (url: string) => {
       router.push(url)
     }
+    const { currentTime, date, month, year } = getDateNow()
+    const { dayOfWeek } = getDateTime()
     return () => (
       <section class={s.right}>
         <div class={s.info}>
@@ -24,8 +27,9 @@ export const HomeRight = defineComponent({
               <svg class={s.svg}><use xlinkHref='#mangosteen'></use></svg>
             </div>
             <div class={[s.fn, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club/#')}>
-              <span> -「 唯你黄科 」</span>
-              <svg class={[s.svg, s.wnhk]}><use xlinkHref='#wnhk'></use></svg>
+              <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
+              <span class={s.time}>{currentTime}</span>
+              <span>郑州市</span>
             </div>
           </div>
           <div class={s.links}>
