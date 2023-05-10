@@ -32,5 +32,11 @@ export const getDateNow = () => {
   setInterval(() => {
     currentTime = new Date().toLocaleTimeString();
   }, 1000);
-  return currentTime
+
+  const h = Number(currentTime.slice(0, 2)) * 3600
+  const m = Number(currentTime.slice(3, 5)) * 60
+  const s = Number(currentTime.slice(6, 8))
+  const a = ((h + m + s) / 86400).toFixed(2)
+  const bit = Number(a) * 100 + '%'
+  return { currentTime, bit }
 }

@@ -26,7 +26,7 @@ export const Message = defineComponent({
       }, props.duration)
     }
     onMounted(handleShow)
-    const time = getDateNow()
+    const { currentTime: time } = getDateNow()
     const setTime = Number(time.slice(0, 2))
     if (setTime >= 0 && setTime < 6) {
       mes.value = '凌晨了'
@@ -34,8 +34,8 @@ export const Message = defineComponent({
       mes.value = '早上好'
     } else if (setTime < 14) {
       mes.value = '中午好'
-    } else if (setTime < 20) {
-      mes.value = '傍晚好'
+    } else if (setTime < 19) {
+      mes.value = '下午好'
     } else {
       mes.value = '晚上好'
     }
