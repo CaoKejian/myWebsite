@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, PropType, ref } from 'vue';
+import { defineComponent, onMounted, onUnmounted, PropType, ref } from 'vue';
 import { Button } from '../../share/Button';
 import s from './ResumeRight.module.scss';
 export const ResumeRight = defineComponent({
@@ -9,12 +9,21 @@ export const ResumeRight = defineComponent({
   },
   setup: (props, context) => {
     const isShowButton = ref(false)
-    const myDiv = ref<HTMLDivElement>();
+    const handleScroll = () => {
+      const windowTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const triggerDistance = windowHeight / 2;
+      isShowButton.value = windowTop > triggerDistance;
+    };
     onMounted(() => {
-      if (myDiv.value === undefined) { return }
-      console.log(myDiv.value);
+      window.addEventListener('scroll', handleScroll);
     });
-
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
+    const returnTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     const ItemObj = ref([
       {
         name: '山竹记账(2023.01~2023.04)',
@@ -77,7 +86,7 @@ export const ResumeRight = defineComponent({
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
             </div>
-            <div class={s.hr} ref={myDiv}><span>项目经验</span><div class={s.bar}></div></div>
+            <div class={s.hr} ><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {
                 return <div class={s.mangosteen}>
@@ -141,7 +150,7 @@ export const ResumeRight = defineComponent({
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
               <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
             </div>
-            <div class={s.hr} ref={myDiv}><span>项目经验</span><div class={s.bar}></div></div>
+            <div class={s.hr} ><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {
                 return <div class={s.mangosteen}>
@@ -176,7 +185,7 @@ export const ResumeRight = defineComponent({
         </div>
       }
       {isShowButton.value ?
-        <Button class={s.button}>回到<br />顶部</Button>
+        <Button class={s.button} index={100} onClick={returnTop}>回到<br />顶部</Button>
         : <div></div>
       }
     </>
