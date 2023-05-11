@@ -128,22 +128,24 @@ export const HomeRight = defineComponent({
             </div>
             <div class={s.lis}>
               <div class={s.el} onClick={() => gotoDeatil('/resume')}>
-                <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#resume'></use></svg><span>简历</span></div>
+                <div class={[s.li, s.cards]}><svg class={s.svg}><use xlinkHref='#resume'></use></svg><span>简历</span></div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]}>  <svg class={s.svg}><use xlinkHref='#blog'></use></svg>博客</div>
+                <div class={[s.li, s.cards]} onClick={() => gotoDeatil('/wrapper')}><svg class={s.svg}><use xlinkHref='#blog'></use></svg>照片墙</div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]}>   <svg class={s.svg}><use xlinkHref='#item'></use></svg>项目</div>
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club')}><svg class={s.svg}><use xlinkHref='#wnhk'></use></svg>唯你黄科</div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]}>  <svg class={s.svg}><use xlinkHref='#github'></use></svg>Github</div>
+
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://github.com/CaoKejian')}><svg class={s.svg}><use xlinkHref='#github'></use></svg>Github</div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</div>
+
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://juejin.cn/user/1438634830203342')}><svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</div>
               </div>
               <div class={s.el} onClick={() => gotoDeatil('/search')}>
-                <div class={[s.li, s.cards]}> <svg class={s.svg}><use xlinkHref='#search'></use></svg>
+                <div class={[s.li, s.cards]}><svg class={s.svg}><use xlinkHref='#search'></use></svg>
                   搜索引擎</div>
               </div>
             </div>
