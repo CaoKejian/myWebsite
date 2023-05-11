@@ -65,8 +65,13 @@ export const HomeRight = defineComponent({
         const diff = (currentTimestamp - timeStamp) / 1000 / 60;
         if (diff > 30) {
           localStorage.removeItem('weather')
+          getWeather(localCity.value || city.value)
         }
-        if (weatherLocal !== null) return
+        if (weatherLocal !== null) {
+          const { win, win_speed, tem, wea } = JSON.parse(weatherLocal)
+          Fuvalue(win, win_speed, tem, wea)
+          return
+        }
         const appidLocal = localStorage.getItem('appid')
         const cityId = await getCityId(cityName);
         const weatherUrl = `https://tianqiapi.com/free/day?appid=${getAppId()}&appsecret=${getAppSecret()}&cityid=${appidLocal || cityId}`;
@@ -77,16 +82,19 @@ export const HomeRight = defineComponent({
         const { win, win_speed, tem, wea } = data;
         localStorage.setItem('weather', JSON.stringify(data))
         localStorage.setItem('timeStamp', JSON.stringify(currentTimestamp))
-        Object.assign(cityTemp.value, {
-          air: win_speed,
-          wea: wea,
-          win: win,
-          tem: tem
-        });
+        Fuvalue(win, win_speed, tem, wea)
       } catch (error) {
         createMessage({ type: "error", message: "获取天气信息错误" })
       }
     };
+    const Fuvalue = (win: string, win_speed: string, tem: string, wea: string) => {
+      Object.assign(cityTemp.value, {
+        air: win_speed,
+        wea: wea,
+        win: win,
+        tem: tem
+      })
+    }
     onMounted(() => {
       localCity.value = localStorage.getItem('city') as string;
       getLocation()
