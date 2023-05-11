@@ -15,6 +15,7 @@ export const HomeRight = defineComponent({
     const router = useRouter()
     const city = ref('')
     const localCity = ref('')
+    const stopGet = ref(false)
     const cityTemp = ref({
       air: '',
       wea: '', //天气
@@ -61,12 +62,8 @@ export const HomeRight = defineComponent({
         const currentTimestamp = new Date().getTime();
         const timeStamp = Number(localStorage.getItem('timeStamp'))
         const weatherLocal = localStorage.getItem('weather')
-        cityTemp.value = JSON.parse(localStorage.getItem('weather') as string)
         const diff = (currentTimestamp - timeStamp) / 1000 / 60;
-        if (diff > 30) {
-          localStorage.removeItem('weather')
-          getWeather(localCity.value || city.value)
-        }
+        if (diff > 30) localStorage.removeItem('weather')
         if (weatherLocal !== null) {
           const { win, win_speed, tem, wea } = JSON.parse(weatherLocal)
           Fuvalue(win, win_speed, tem, wea)
@@ -75,10 +72,13 @@ export const HomeRight = defineComponent({
         const appidLocal = localStorage.getItem('appid')
         const cityId = await getCityId(cityName);
         const weatherUrl = `https://tianqiapi.com/free/day?appid=${getAppId()}&appsecret=${getAppSecret()}&cityid=${appidLocal || cityId}`;
-        const response = await fetchJsonp(weatherUrl, {
-          jsonpCallback: 'callback',
-        });
-        const data = await response.json();
+        const response = await Promise.race<unknown>([
+          fetchJsonp(weatherUrl, { jsonpCallback: 'callback' }),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('请求超时')), 5000)
+          ),
+        ]);
+        const data = await (response as Response).json();
         const { win, win_speed, tem, wea } = data;
         localStorage.setItem('weather', JSON.stringify(data))
         localStorage.setItem('timeStamp', JSON.stringify(currentTimestamp))
