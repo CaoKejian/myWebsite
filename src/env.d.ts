@@ -7,4 +7,5 @@ declare module '*.vue' {
   const component: ReturnType<typeof defineComponent>;
   export default component
 }
+declare module 'vue3-waterfall-plugin'
 type JSONValue = null | boolean | string | number | JSONValue[] | Record<string, JSONValue>

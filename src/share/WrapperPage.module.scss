@@ -1,14 +1,13 @@
 .photoWall{
-  padding: 4px 0;
+  padding: 4px;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
   background: white;
+  column-gap: 10px;
+  column-count: 4;
+  box-sizing: border-box;
 }
 .photoItem{
-  width:calc(25% - 10px);
-  margin:5px;
+  margin-bottom: 10px;
   border-radius: 8px;
   >img{
     width: 100%;
@@ -42,12 +41,12 @@
   }
 }
 @media (max-width: 1480px) {
-  .photoItem {
-    width: calc(33.33% - 10px);
+  .photoWall {
+    column-count: 3;
   }
 }
 @media (max-width: 980px) {
-  .photoItem {
-    width: calc(50% - 10px);
+  .photoWall {
+    column-count: 2;
   }
 }
