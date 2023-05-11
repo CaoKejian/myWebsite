@@ -8,6 +8,7 @@ import { TransitionMade } from '../share/TransitionMade';
 import createMessage from '../components/Message';
 import { Bar, BigBar } from '../components/Resume/Bar';
 import { getDateNow, getDateTime } from '../share/Time';
+import { getAssetsFile } from '../utils/pushPic';
 
 export const Home = defineComponent({
   props: {
@@ -16,15 +17,16 @@ export const Home = defineComponent({
     }
   },
   setup: (props, context) => {
+
     const currentIndex = ref(0)
     const overflowShow = ref(false)
     const bgImages = [
-      "url('/src/assets/imgs/1.png')",
-      "url('/src/assets/imgs/2.png')",
-      "url('/src/assets/imgs/3.png')",
-      "url('/src/assets/imgs/4.png')",
-      "url('/src/assets/imgs/5.png')",
-      "url('/src/assets/imgs/6.png')",
+      `url(${getAssetsFile('1.png')})`,
+      `url(${getAssetsFile('2.png')})`,
+      `url(${getAssetsFile('3.png')})`,
+      `url(${getAssetsFile('4.png')})`,
+      `url(${getAssetsFile('5.png')})`,
+      `url(${getAssetsFile('6.png')})`,
     ];
     const setPaper = () => {
       currentIndex.value = Math.floor(Math.random() * bgImages.length)

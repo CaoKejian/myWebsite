@@ -1,5 +1,6 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { Button } from '../../share/Button';
+import { getAssetsFile } from '../../utils/pushPic';
 import { Bar } from './Bar';
 import s from './ResumeLeft.module.scss';
 export const ResumeLeft = defineComponent({
@@ -19,12 +20,13 @@ export const ResumeLeft = defineComponent({
       showLeft.value = true
       context.emit('update:show', false)
     }
+    getAssetsFile
     return () => (<>
       {showLeft.value ?
         <div class={s.left}>
           <div class={s.left_top}>
             <div class={s.info_a}>
-              <img src="/src/assets/imgs/meself.jpg" alt="曹珂俭" />
+              <img src={`${getAssetsFile('meself.jpg')}`} alt="曹珂俭" />
               <span class={s.info_name}>曹珂俭</span>
               <div class={s.info_link}>
                 <div ><svg class={s.svg}><use xlinkHref='#github_a'></use></svg><a href='https://github.com/CaoKejian' target="_blank">github</a></div>
