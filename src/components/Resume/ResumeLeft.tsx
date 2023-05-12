@@ -29,8 +29,8 @@ export const ResumeLeft = defineComponent({
               <img src={`${getAssetsFile('meself.jpg')}`} alt="曹珂俭" />
               <span class={s.info_name}>曹珂俭</span>
               <div class={s.info_link}>
-                <div ><svg class={s.svg}><use xlinkHref='#github_a'></use></svg><a href='https://github.com/CaoKejian' target="_blank">github</a></div>
-                <div><svg class={s.svg}><use xlinkHref='#juejin'></use></svg><a href='https://juejin.cn/user/1438634830203342' target="_blank">掘金</a></div>
+                <div ><a href='https://github.com/CaoKejian' target="_blank"><svg class={s.svg}><use xlinkHref='#github_a'></use></svg>github</a></div>
+                <div><a href='https://juejin.cn/user/1438634830203342' target="_blank"><svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</a></div>
               </div>
             </div>
           </div>
