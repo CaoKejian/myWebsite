@@ -26,6 +26,15 @@
   margin: 0 auto;
   display: flex;
 }
+@media (max-width: 780px) {
+  .wrapper_seciton {
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper{
+    height: auto;
+  }
+}
 @keyframes fade-in-out {
   0% {
     opacity: 0;

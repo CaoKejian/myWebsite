@@ -2,6 +2,7 @@
   width: 50%;
   user-select: none;
   display: flex;
+  margin-left: 150px;
   align-items: center;
   color: white;
   .info{
@@ -94,6 +95,7 @@
 }
 @media (max-width: 780px) {
   .right {
-    display: none;
+    width: 100%;
+    margin-left: 0;
   }
 }

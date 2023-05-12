@@ -1,5 +1,5 @@
 .left{
-  width: 50%;
+  width: 42%;
   font-family: Pacifico-Regular; 
   user-select: none;
   color: white;
@@ -7,10 +7,15 @@
   align-items: center;
   .info{
     width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     .logo{
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-top: -60px;
+      margin-bottom: 120px;
       .yuming{
         width: 60%;
         margin-left: 8px;
@@ -24,33 +29,35 @@
       .svg{
         width: 118px;
         height: 118px;
-        
       }
     }
-    .description{
-      width: 76%;
-      margin-top: 64px;
-      padding: 8px;
-      overflow: hidden;
-      border-radius: 8px;
-      .svg1,.svg2{
-        width: 1em;
-        height: 1em;
-        fill: white;
-      }
-      .svg2{
-        float: right;
-      }
-      .text{
-        font-size: 1.2em;
-        padding: 2px 36px;
-        :nth-child(2){
-          margin-top: 16px;
+    .f{
+      width: 100%;
+      .description{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px;
+        overflow: hidden;
+        border-radius: 8px;
+        .svg1,.svg2{
+          width: 1em;
+          height: 1em;
+          fill: white;
         }
-      }
-      &:hover{
-        transform: scale(1.02)
-      }
+        .svg2{
+          float: right;
+        }
+        .text{
+          font-size: 1.2em;
+          padding: 2px 36px;
+          :nth-child(2){
+            margin-top: 16px;
+          }
+        }
+        &:hover{
+          transform: scale(1.02)
+        }
+    }
     }
     .cards{
       background: rgba(0,0,0,.2509803922);
@@ -84,7 +91,19 @@
     cursor: url('/help.ico'),auto;
   }
 @media (max-width: 780px) {
-  .left {
+  .info,.left {
+    width: 100%;
+  }
+  .info{
+    margin-top: 22px;
+  }
+  .logo{
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  .description{
     width: 100%;
   }
 }

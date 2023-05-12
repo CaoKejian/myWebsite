@@ -57,14 +57,17 @@ export const HomeLeft = defineComponent({
               <span class={s.span2}>.top</span>
             </div>
           </div>
-          <div class={[s.description, s.cards]}>
-            <svg class={s.svg1}><use xlinkHref='#fmarks'></use></svg>
-            <div class={s.text} onClick={cardsClick}>
-              <p>{state.cardsInfo.msg}</p>
-              <p style={"font-size:0.8em;"}>{state.cardsInfo.dayMsg}</p>
+          <div class={s.f}>
+            <div class={[s.description, s.cards]}>
+              <svg class={s.svg1}><use xlinkHref='#fmarks'></use></svg>
+              <div class={s.text} onClick={cardsClick}>
+                <p>{state.cardsInfo.msg}</p>
+                <p style={"font-size:0.8em;"}>{state.cardsInfo.dayMsg}</p>
+              </div>
+              <svg class={s.svg2}><use xlinkHref='#lmarks'></use></svg>
             </div>
-            <svg class={s.svg2}><use xlinkHref='#lmarks'></use></svg>
           </div>
+
           <div class={s.social}>
             <div class={s.link}>
               <a href="https://github.com/CaoKejian" target="_blank" onMouseover={() => (currentIndex.value = 0)}
