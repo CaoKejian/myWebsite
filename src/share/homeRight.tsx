@@ -115,7 +115,7 @@ export const HomeRight = defineComponent({
               <span> -「 山竹记账 」</span>
               <svg class={s.svg}><use xlinkHref='#mangosteen'></use></svg>
             </div>
-            <div class={[s.fn, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club/#')}>
+            <div class={[s.fn, s.cards]}>
               <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
               <span class={s.time}>{time.value}</span>
               <span>{localCity.value || city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} {cityTemp.value.air}</span>
