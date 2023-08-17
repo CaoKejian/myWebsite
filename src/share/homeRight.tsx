@@ -137,12 +137,10 @@ export const HomeRight = defineComponent({
                 <div class={[s.li, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club')}><svg class={s.svg}><use xlinkHref='#wnhk'></use></svg>唯你黄科</div>
               </div>
               <div class={s.el}>
-
-                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://github.com/CaoKejian')}><svg class={s.svg}><use xlinkHref='#github'></use></svg>Github</div>
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://jobpost-1314966552.cos-website.ap-shanghai.myqcloud.com/#/')}><svg class={s.svg}><use xlinkHref='#jobpost'></use></svg>交作业啦</div>
               </div>
               <div class={s.el}>
-
-                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://juejin.cn/user/1438634830203342')}><svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</div>
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://rs.caokejian.club/')}><svg class={s.svg}><use xlinkHref='#bigscreen'></use></svg>大屏可视化</div>
               </div>
               <div class={s.el} onClick={() => gotoDeatil('/search')}>
                 <div class={[s.li, s.cards]}><svg class={s.svg}><use xlinkHref='#search'></use></svg>
