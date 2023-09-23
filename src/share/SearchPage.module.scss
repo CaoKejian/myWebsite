@@ -140,3 +140,16 @@
     transform: scale(1.0);
   }
 }
+
+@media screen and (max-width: 767px) {
+  .wrapper{
+    .center{
+      .date{
+        width: 40%;
+      }
+      .search{
+        width: 70%;
+      }
+    }
+  }
+}

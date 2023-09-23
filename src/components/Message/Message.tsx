@@ -21,9 +21,9 @@ export const Message = defineComponent({
     const mes = ref<string>()
     const handleShow = () => {
       isShow.value = true
-      setTimeout(() => {
-        isShow.value = false
-      }, props.duration)
+      // setTimeout(() => {
+      //   isShow.value = false
+      // }, props.duration)
     }
     onMounted(handleShow)
     const { currentTime: time } = getDateNow()
@@ -58,7 +58,6 @@ export const Message = defineComponent({
       {isShow.value ? (
         <div class={s.glmessage}>
           <svg class={s.svg}><use xlinkHref={`#${style[props.type].icon}`}></use></svg>
-          <i class="iconfont"></i>
           <span class={s.time}>{mes.value}</span>
           <span class={s.text}>{props.message}</span>
         </div>

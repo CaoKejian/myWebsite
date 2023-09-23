@@ -137,7 +137,7 @@ export const HomeRight = defineComponent({
                 <div class={[s.li, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club')}><svg class={s.svg}><use xlinkHref='#wnhk'></use></svg>唯你黄科</div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]} onClick={() => toWebPage('https://jobpost-1314966552.cos-website.ap-shanghai.myqcloud.com/#/')}><svg class={s.svg}><use xlinkHref='#jobpost'></use></svg>交作业啦</div>
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('http://43.139.142.203:8080/')}><svg class={s.svg}><use xlinkHref='#jobpost'></use></svg>交作业啦</div>
               </div>
               <div class={s.el}>
                 <div class={[s.li, s.cards]} onClick={() => toWebPage('https://rs.caokejian.club/')}><svg class={s.svg}><use xlinkHref='#bigscreen'></use></svg>大屏可视化</div>
