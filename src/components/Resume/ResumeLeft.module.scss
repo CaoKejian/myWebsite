@@ -98,9 +98,9 @@ hr{
   }
 }
 .button_bottom{
-  margin: 8px;
-  display: flex;
-  justify-content: flex-start;
+  position: absolute;
+  left:1rem;
+  bottom: 3rem;
   .svg{
     width: 2em;
     height: 2em;
@@ -112,5 +112,12 @@ hr{
   top: 20px;
   left: 20px;
   z-index: 9999;
+  background: #d4ddf5 !important;
+  color: #386b78;
+}
+@media screen and (max-width: 767px) {
+  .left{
+    display: none;
+  }
 }
 

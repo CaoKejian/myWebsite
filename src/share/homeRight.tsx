@@ -111,9 +111,9 @@ export const HomeRight = defineComponent({
       <section class={s.right}>
         <div class={s.info}>
           <div class={s.function}>
-            <div class={[s.fn, s.cards]} onClick={() => toWebPage('http://8.130.24.249:8080/#')}>
-              <span> -「 山竹记账 」</span>
-              <svg class={s.svg}><use xlinkHref='#mangosteen'></use></svg>
+            <div class={[s.fn, s.cards]} onClick={() => toWebPage('http://124.70.188.74:8080/')}>
+              <span> -「 交作业啦 」</span>
+              <svg class={s.svg}><use xlinkHref='#jobpost'></use></svg>
             </div>
             <div class={[s.fn, s.cards]}>
               <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
@@ -137,7 +137,7 @@ export const HomeRight = defineComponent({
                 <div class={[s.li, s.cards]} onClick={() => toWebPage('https://hhstu.caokejian.club')}><svg class={s.svg}><use xlinkHref='#wnhk'></use></svg>唯你黄科</div>
               </div>
               <div class={s.el}>
-                <div class={[s.li, s.cards]} onClick={() => toWebPage('http://43.139.142.203:8080/')}><svg class={s.svg}><use xlinkHref='#jobpost'></use></svg>交作业啦</div>
+                <div class={[s.li, s.cards]} onClick={() => toWebPage('http://8.130.24.249:8080/#')}><svg class={s.svg}><use xlinkHref='#mangosteen'></use></svg>山竹记账</div>
               </div>
               <div class={s.el}>
                 <div class={[s.li, s.cards]} onClick={() => toWebPage('https://rs.caokejian.club/')}><svg class={s.svg}><use xlinkHref='#bigscreen'></use></svg>大屏可视化</div>

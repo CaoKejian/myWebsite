@@ -6,7 +6,7 @@
   transform: translateX(-50%);
   top: 25px;
   line-height: 2.625rem;
-  padding: 0 1.56px;
+  padding: 0 1.56rem;
   color: white;
   border-radius: 3em;
   background: var(--message-bg);
@@ -30,7 +30,6 @@
 
 @media screen and (max-width: 767px) {
   .glmessage{
-    // width: 40%;
     display: flex;
     font-size: 0.8rem;
     padding: 0 0.4rem;

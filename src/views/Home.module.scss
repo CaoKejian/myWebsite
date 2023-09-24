@@ -26,28 +26,6 @@
   margin: 0 auto;
   display: flex;
 }
-@media (max-width: 780px) {
-  .wrapper_seciton {
-    display: flex;
-    flex-direction: column;
-  }
-  .wrapper{
-    height: 100vh;
-  }
-}
-@keyframes fade-in-out {
-  0% {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.0);
-  }
-}
 .overflow{
   user-select: none;
   width: 40%;
@@ -76,4 +54,38 @@
     margin: 8px 0;
   }
   
+}
+
+@media (max-width: 780px) {
+  .wrapper_seciton {
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper{
+    height: 100vh;
+    font-size: 0.5rem;
+    >Button{
+      height: 2rem;
+      line-height: 2rem;
+      padding: 0.2rem 0.6rem;
+    }
+  }
+  .overflow{
+    font-size: 0.6rem;
+    width: 40%;
+    height: 40vh;
+  }
+}
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
 }

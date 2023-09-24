@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, onUnmounted, PropType, ref } from 'vue';
+import { computed, defineComponent, onMounted, onUnmounted, PropType, ref } from 'vue';
 import { Button } from '../../share/Button';
 import s from './ResumeRight.module.scss';
 export const ResumeRight = defineComponent({
@@ -53,6 +53,28 @@ export const ResumeRight = defineComponent({
         introduce: ['补充自己小程序方面的经验，体验uniapp的高效率开发创建了唯你黄科这个项目，为黄河科技学院提供了校园便利和实用功能：博客系统（技术分享、失物招领等）、课程表、待办事项、专业介绍、图书馆指南等多项功能。 ', '因为uniapp不适配等各种不合适原因，封装了柱状图，使得业务更加自由便利的完成。', 'uniCloud、云函数与Vue组合开发，体验到了超快接口的实现。', '调用腾讯地图Api接口，实现校园地图。', '写了完整的UI设计图、设计文档、架构图、用例图、需求分析、工期排署以及设计文档。严格按照软件开发流程体验公司的协作开发。', '三端适配的问题比较多，总是很难匹配到完全适配的状态，所以体会到项目复杂度守恒。']
       }
     ])
+    const re3 = computed(() => {
+      return (
+        <div class={s.re3}>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练vue3+TSX/Template写法、vue2及其生态（vue-Router、Vuex、Axios等）</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+              熟练React、React Router;熟悉Redux、Hooks的写法
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+              熟练JS及Es6语法；熟悉Ts；熟练使用css module开发，了解css3
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
+              熟练使用微信小程序及uni-app框架开发，有相关项目经验
+              </span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>了解 Webpack 和 Vite 等打包工具的使用和优化。熟悉第三方库的使用，如：Ant Design、Echarts</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉node.js(Express框架)、python(Flask框架)，能够实现基本的服务端；熟悉mongoDB数据库</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>使用过 Node.js 和 MongoDB，了解 Express 等后端框架的使用，能够搭建简单的后端服务和实现数据交互。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉Linux基本命令，有Bash脚本(shell)、npm插件有一定的了解；前后端部署有实践经验；了解计算机网络</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用Git进行项目管理，了解Git工作流程和常用命令及提交规范。</span>
+              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>社区活跃记录：博客、github、bilibili </span>
+            </div>
+      )
+    })
     return () => (<>
       {props.isChange ?
         <div class={[s.right, s.active]}>
@@ -67,25 +89,16 @@ export const ResumeRight = defineComponent({
               <span>数据科学与大数据技术（本科）</span>
               <span>2020.09~2024.07</span>
             </div>
-            <div class={s.hr}><span>自我介绍</span><div class={s.bar}></div></div>
-            <div class={s.re3}>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉 HTML5 和 CSS3 标准，能够编写语义化、兼容性良好的页面布局，并能够使用 CSS 预处理器（sass、less）提高样式代码的效率和可维护性。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟练掌握 JavaScript 和 TypeScript，熟练Es6新特性，理解浏览器的工作原理，能够编写高质量、可维护的 JavaScript 代码。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟练掌握 Vue2、Vue3 框架及其生态系统，包括 Vue Router、Vuex、Axios 、pinia等，能够使用 Element-Plus 以及其他第三方库来构建高质量的前端应用程序。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟悉Vue3+Tsx语法开发项目。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉前端工程化和模块化开发，了解 Webpack 和 Vite 等打包工具的使用和优化，能够使用模块化和组件化思想来组织前端代码和提高代码复用率。有从0到1开发项目并部署的经验。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练掌握微信小程序和 uni-app 开发，有使用官方 API 和第三方库来开发高质量的小程序经验。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>使用过 Node.js 和 MongoDB，了解 Express 等后端框架的使用，能够搭建简单的后端服务和实现数据交互。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉Linux基础命令，在校期间读过计算机网络等计算机基础重要书籍。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
+            <div class={s.re2}>
+              <span style={{fontWeight:'bold'}}>中国大学生计算机设计大赛</span>
+              <span>国赛二等奖</span>
             </div>
+            <div class={s.re2}>
+              <span style={{fontWeight:'bold'}}>英语</span>
+              <span>CET-4</span>
+            </div>
+            <div class={s.hr}><span>自我介绍</span><div class={s.bar}></div></div>
+            {re3.value}
             <div class={s.hr} ><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {
@@ -131,25 +144,16 @@ export const ResumeRight = defineComponent({
               <span>数据科学与大数据技术（本科）</span>
               <span>2020.09~2024.07</span>
             </div>
-            <div class={s.hr}><span>自我介绍</span><div class={s.bar}></div></div>
-            <div class={s.re3}>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉 HTML5 和 CSS3 标准，能够编写语义化、兼容性良好的页面布局，并能够使用 CSS 预处理器（sass、less）提高样式代码的效率和可维护性。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟练掌握 JavaScript 和 TypeScript，熟练Es6新特性，理解浏览器的工作原理，能够编写高质量、可维护的 JavaScript 代码。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟练掌握 Vue2、Vue3 框架及其生态系统，包括 Vue Router、Vuex、Axios 、pinia等，能够使用 Element-Plus 以及其他第三方库来构建高质量的前端应用程序。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>
-                熟悉Vue3+Tsx语法开发项目。
-              </span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉前端工程化和模块化开发，了解 Webpack 和 Vite 等打包工具的使用和优化，能够使用模块化和组件化思想来组织前端代码和提高代码复用率。有从0到1开发项目并部署的经验。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练掌握微信小程序和 uni-app 开发，有使用官方 API 和第三方库来开发高质量的小程序经验。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>使用过 Node.js 和 MongoDB，了解 Express 等后端框架的使用，能够搭建简单的后端服务和实现数据交互。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟悉Linux基础命令，在校期间读过计算机网络等计算机基础重要书籍。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>有博客记录习惯，会发布技术教程、项目经验、思考感悟等文章。</span>
-              <span><svg class={s.svg}><use xlinkHref='#circle'></use></svg>熟练使用 Git 进行项目管理，了解 Git 工作流程和常用命令，能够使用 GitHub 等平台来管理代码和协作开发。</span>
+            <div class={s.re2}>
+              <span style={{fontWeight:'bold'}}>中国大学生计算机设计大赛</span>
+              <span>国赛二等奖</span>
             </div>
+            <div class={s.re2}>
+              <span style={{fontWeight:'bold'}}>英语</span>
+              <span>CET-4</span>
+            </div>
+            <div class={s.hr}><span>自我介绍</span><div class={s.bar}></div></div>
+            {re3.value}
             <div class={s.hr} ><span>项目经验</span><div class={s.bar}></div></div>
             <div class={s.re4}>
               {ItemObj.value.map(item => {

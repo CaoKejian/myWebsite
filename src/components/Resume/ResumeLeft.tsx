@@ -29,8 +29,14 @@ export const ResumeLeft = defineComponent({
               <img src={`${getAssetsFile('meself.jpg')}`} alt="曹珂俭" />
               <span class={s.info_name}>曹珂俭</span>
               <div class={s.info_link}>
-                <div ><a href='https://github.com/CaoKejian' target="_blank"><svg class={s.svg}><use xlinkHref='#github_a'></use></svg>github</a></div>
-                <div><a href='https://juejin.cn/user/1438634830203342' target="_blank"><svg class={s.svg}><use xlinkHref='#juejin'></use></svg>掘金</a></div>
+                <div style={{ display: 'flex', "align-items": "center" }}>
+                  <a href='https://github.com/CaoKejian' target="_blank"><svg class={s.svg}><use xlinkHref='#github_a'></use></svg></a>
+                  <span>github</span>
+                </div>
+                <div style={{ display: 'flex', "align-items": "center" }}>
+                  <a href='https://juejin.cn/user/1438634830203342' target="_blank"><svg class={s.svg}><use xlinkHref='#juejin'></use></svg></a>
+                  <span>掘金</span>
+                </div>
               </div>
             </div>
           </div>
@@ -46,9 +52,10 @@ export const ResumeLeft = defineComponent({
             <div class={s.normalInfo}>
               <span class={[s.normal]}>专业技能</span>
               <Bar name={"Html"} process={'75%'}></Bar>
-              <Bar name={"CSS3"} process={'65%'}></Bar>
+              <Bar name={"CSS3"} process={'45%'}></Bar>
               <Bar name={"Vue2"} process={'65%'}></Bar>
-              <Bar name={"Vue2"} process={'65%'}></Bar>
+              <Bar name={"Vue3"} process={'65%'}></Bar>
+              <Bar name={"React"} process={'50%'}></Bar>
               <Bar name={"JavaScript"} process={'55%'}></Bar>
               <Bar name={"TypeScript"} process={'25%'}></Bar>
               <Bar name={"Node.js"} process={'25%'}></Bar>
@@ -62,9 +69,9 @@ export const ResumeLeft = defineComponent({
               <div class={s.normal_info}>学校-青基智能科技工作室</div>
               <div class={s.normal_info}>全国大学生计算机设计大赛</div>
             </div>
-            <div class={s.button_bottom}>
-              <svg onClick={onClick} class={s.svg}><use xlinkHref='#novisibility'></use></svg>
-            </div>
+          </div>
+          <div class={s.button_bottom}>
+            <svg onClick={onClick} class={s.svg}><use xlinkHref='#novisibility'></use></svg>
           </div>
         </div>
         : <Button class={s.button} onClick={onTrue}>展开</Button>
