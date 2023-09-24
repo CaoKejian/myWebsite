@@ -127,8 +127,6 @@ hr{
           display: flex;
           align-items: center;
           margin: 0.2rem 0;
-          .link{
-          }
         }
         .svg{
           width: 1rem;
@@ -152,5 +150,16 @@ hr{
   .right{
     margin-left: 0;
     font-size: 0.5rem;
+    .resume{
+      .re2{
+        display: flex;
+        :nth-child(1){
+          min-width: 9rem;
+        }
+        :nth-child(3){
+          display: none;
+        }
+      }
+    }
   }
 }

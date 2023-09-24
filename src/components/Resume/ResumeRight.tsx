@@ -133,7 +133,7 @@ export const ResumeRight = defineComponent({
             <div class={s.hr}><span>教育经历</span><div class={s.bar}></div></div>
             <div class={s.re2}>
               <span class={s.school}>黄河科技学院</span>
-              <span>数据科学与大数据技术（本科）</span>
+              <span>数据科学与大数据技术(本科)</span>
               <span>2020.09~2024.07</span>
             </div>
             <div class={s.re2}>
@@ -224,7 +224,7 @@ export const ResumeRight = defineComponent({
             <div class={s.hr}><span>教育经历</span><div class={s.bar}></div></div>
             <div class={s.re2}>
               <span class={s.school}>黄河科技学院</span>
-              <span>数据科学与大数据技术（本科）</span>
+              <span>数据科学与大数据技术(本科)</span>
               <span>2020.09~2024.07</span>
             </div>
             <div class={s.re2}>
