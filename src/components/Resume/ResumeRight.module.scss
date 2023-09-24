@@ -113,7 +113,36 @@ hr{
         }
       }
     }
+    .work{
+      margin: 1rem 0;
+    }
+    .info{
+      display: flex;
+      margin-top: 1rem;
+      font-style: 0.5rem;
+      .list{
+        display: flex;
+        flex-direction: column;
+        >span{
+          display: flex;
+          align-items: center;
+          margin: 0.2rem 0;
+          .link{
+          }
+        }
+        .svg{
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
   }
+}
+.action{
+  color: #ada8a8;
+}
+.a{
+  text-decoration: underline;
 }
 .active{
   margin-left: 0;
