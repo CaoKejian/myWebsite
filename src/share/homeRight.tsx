@@ -15,9 +15,8 @@ export const HomeRight = defineComponent({
     const router = useRouter()
     const city = ref('')
     const localCity = ref('')
-    const stopGet = ref(false)
     const cityTemp = ref({
-      air: '',
+      win_speed: '',
       wea: '', //天气
       win: '', //风
       tem: '' //温度
@@ -36,27 +35,15 @@ export const HomeRight = defineComponent({
     const getLocation = () => {
       const localInfo = localStorage.getItem('city')
       if (localInfo !== null) return
-      const url = 'https://restapi.amap.com/v3/ip?key=7ef462c39299f921a8a2557ad84c2cb2';
+      const url = 'https://restapi.amap.com/v3/ip?key=521d56615aad7c53f930a5db86214cfd';
       fetchJsonp(url, { jsonpCallback: 'callback' })
         .then(response => response.json())
         .then(data => handleSearchResults(data))
         .catch(error => createMessage({ type: "error", message: "获取地理位置错误" }))
     }
-    const getAppId = () => '99368856'
-    const getAppSecret = () => 'yJf63oaQ'
-    // 获取位置对应的城市id（易客云）
-    const getCityId = async (cityName: string) => {
-      const localInfo = localStorage.getItem('appid')
-      if (localInfo !== null) return
-      const url = `https://tianqiapi.com/api?version=v6&appid=${getAppId()}&appsecret=${getAppSecret()}&city=${cityName}`;
-      const response = await fetchJsonp(url, {
-        jsonpCallback: 'callback',
-      });
-      const data = await response.json();
-      localStorage.setItem('appid', data.cityid)
-      return data.cityid;
-    };
-    // 获取城市天气（易客云）
+    const getAppkey = () => '1b1a330a6ea6460ebe2eee3a05b75189'
+
+    // 获取城市天气（和风天气）
     const getWeather = async (cityName: string) => {
       try {
         const currentTimestamp = new Date().getTime();
@@ -69,27 +56,22 @@ export const HomeRight = defineComponent({
           Fuvalue(win, win_speed, tem, wea)
           return
         }
-        const appidLocal = localStorage.getItem('appid')
-        const cityId = await getCityId(cityName);
-        const weatherUrl = `https://tianqiapi.com/free/day?appid=${getAppId()}&appsecret=${getAppSecret()}&cityid=${appidLocal || cityId}`;
-        const response = await Promise.race<unknown>([
-          fetchJsonp(weatherUrl, { jsonpCallback: 'callback' }),
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('请求超时')), 5000)
-          ),
-        ]);
-        const data = await (response as Response).json();
-        const { win, win_speed, tem, wea } = data;
+        const weatherUrl = `https://devapi.qweather.com/v7/weather/now?location=101010100&key=${getAppkey()}`;
+
+        const response = await axios.get(weatherUrl);
+        const data = response.data.now;
+        const { windDir: win, windScale: humidity, temp: tem, text: wea,} = data;
+
         localStorage.setItem('weather', JSON.stringify(data))
         localStorage.setItem('timeStamp', JSON.stringify(currentTimestamp))
-        Fuvalue(win, win_speed, tem, wea)
+        Fuvalue(win, humidity, tem, wea)
       } catch (error) {
         createMessage({ type: "error", message: "获取天气信息错误" })
       }
     };
     const Fuvalue = (win: string, win_speed: string, tem: string, wea: string) => {
       Object.assign(cityTemp.value, {
-        air: win_speed,
+        win_speed: win_speed,
         wea: wea,
         win: win,
         tem: tem
@@ -118,7 +100,7 @@ export const HomeRight = defineComponent({
             <div class={[s.fn, s.cards]}>
               <span>{year} 年 0{month} 月 {date} 日 {dayOfWeek}</span>
               <span class={s.time}>{time.value}</span>
-              <span>{localCity.value || city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} {cityTemp.value.air}</span>
+              <span>{localCity.value || city.value} {cityTemp.value.wea} {cityTemp.value.tem}°C {cityTemp.value.win} 等级: {cityTemp.value.win_speed}级</span>
             </div>
           </div>
           <div class={s.links}>
